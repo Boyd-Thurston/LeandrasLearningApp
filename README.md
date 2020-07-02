@@ -22,6 +22,20 @@ The stretch goal user stories are as follows:
 - [ ] As a parent user I want to be emailed a report on my child's progress
 - [ ] As a parent user I want the displayed reports to be downloadable in a printerbale/attachable format
 
+## Database tables
+
+This section defines the db tables used in this add and the data types for each column
+
+### Users
+|  Column   | Data Type |  Constraints  |
+|-----------|-----------|---------------|
+| id        | Integer   | PK increments |
+| username  | String    | unique        |
+| hash      | String    |               |
+| email     | String    |               |
+| is_child  | boolean   | default False |
+| parent_id | Integer   |               |
+
 ## Setup/Installation
 
 If you have downloaded this repo for your own use please follow the following steps:
