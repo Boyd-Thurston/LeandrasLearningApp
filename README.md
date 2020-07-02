@@ -1,12 +1,48 @@
-# boilerplate-auth-react-redux
+# Leandra's Learning App
+### A childs learning app.
 
-A boilder plate for a react web app with a redux global store and authorisation. This project has two objectives, the first of which is to further my understanding of authorisation while scratch building a full stack web app boilerplate based on the stack touaght at Enspireal Dev Academy (EDA), the secound objective is to provide a boiler plate for me and my fellow graduates to use in our personal projects going forward.
+## Purpose of the project
+
+This project fills two purposes. The primary purpose is to provide a learning app for my autistic child without pressure of age suggestions or where your learning should solely focus on encouraging the growth of skills at the child's pace. The secondary purpose is to showcase my skills at creating a web app of this type. As this is the secondary goal anything beyond what is necessary to achieve the primary purpose of this app will be left out focusing on a tidy clean and very functional delivery of the core purpose.
+
+## User Stories
+
+I envision this app having two distinct types of users: the parents setting up their children on the app and viewing reports on their progress and the children making use of the app.
+
+The MVP user stories are as follows:
+- [ ] As a user I want to be able to login to the app
+- [ ] As a parent user I want to be able to register for the app
+- [ ] As a parent user I want to be able to register a child for the app
+- [ ] As a parent user I want to be able to see my child's progress on the app
+- [ ] As a child user I want to be able to play educational games on the app
+- [ ] As a child user I want to be able to see my accumulated success on the app
+
+The stretch goal user stories are as follows:
+- [ ] As a child user I want to be able to register and linked to a registered parent
+- [ ] As a parent user I want to be emailed a report on my child's progress
+- [ ] As a parent user I want the displayed reports to be downloadable in a printerbale/attachable format
+
+## Setup/Installation
+
+If you have downloaded this repo for your own use please follow the following steps:
+- Navigate to the local directory for this repo
+- in the command line use:
+  - npm i
+  - npx knex migrate:latest
+  - touch .env
+- fill out .env as described in the next section
+- to start the app in the command line use:  npm run dev
+- in a browser navigate to localhost:3000
+- enjoy
+
+Alternatively if you just want to use this app it is deployed on heroku, check it out here <insert link here>
 
 ## .env
 
-this boiler plate use a .env not save to the repo, please ensure you set up your own .env file in the root directory of this app to make use of this, it should conaint a JWT_SECRET=????incert you secret here????.
+This project uses a .env not saved to the repo, please ensure you set up your own .env file in the root directory of this app to make use of this, it should contain a JWT_SECRET=????insert your secret here????.
 
 ## Tech used:
+
 Frontend frameworks:
 - React
 - Redux
@@ -25,3 +61,6 @@ Transpiler
 - babel
 cross system dev compatability
 - npm-run-all
+Test Suite:
+- Jest
+- Enzyme
