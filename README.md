@@ -1,5 +1,5 @@
 # Leandra's Learning App
-### A childs learning app.
+*A childs learning app.*
 
 ## Purpose of the project
 
