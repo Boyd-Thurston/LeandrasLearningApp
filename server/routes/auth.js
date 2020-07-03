@@ -17,8 +17,8 @@ router.get('/user', verifyJwt({secret: process.env.JWT_SECRET, algorithms: ['RS2
 
 // supporting functions to routs
 function register (req, res, next) {
-  const { username, password } = req.body
-  createUser({username, password})
+  const { username, password, email } = req.body
+  createUser({username, password, email})
     .then(([id]) => {
       res.locals.userId = id
       next()
