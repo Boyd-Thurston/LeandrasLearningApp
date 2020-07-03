@@ -37,16 +37,17 @@ export class AuthSignIn extends React.Component {
   // render the App component
   render(){
     return(
-        <form onSubmit={this.handleSignIn}>
-          <h2>Example Sign In Form</h2>
-          <label>username: </label>
-          <input onChange={this.handleChange} name='signInUser' value={this.state.signInUser} type='text'/>
-          <label>  password: </label>
-          <input onChange={this.handleChange} name='signInPassword' value={this.state.signInPassword} type='password'/>
-          <input type='submit' value='Sign in'/>
-        </form>
+      <form onSubmit={this.handleSignIn}>
+        <h2>Example Sign In Form</h2>
+        <label>username: </label>
+        <input onChange={this.handleChange} name='signInUser' value={this.state.signInUser} type='text'/>
+        <label>  password: </label>
+        <input onChange={this.handleChange} name='signInPassword' value={this.state.signInPassword} type='password'/>
+        <input type='submit' value='Sign in'/>
+      </form>
     )
   }
 }
 
+// export component
 export default connect()(AuthSignIn)

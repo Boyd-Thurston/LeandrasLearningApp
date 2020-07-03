@@ -70,4 +70,5 @@ class AuthRegister extends React.Component {
   }
 }
 
+// export component
 export default connect()(AuthRegister)
