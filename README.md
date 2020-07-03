@@ -1,6 +1,8 @@
 # Leandra's Learning App
 *A childs learning app.*
 
+
+
 ## Purpose of the project
 
 This project fills two purposes. The primary purpose is to provide a learning app for my autistic child without pressure of age suggestions or where your learning should solely focus on encouraging the growth of skills at the child's pace. The secondary purpose is to showcase my skills at creating a web app of this type. As this is the secondary goal anything beyond what is necessary to achieve the primary purpose of this app will be left out focusing on a tidy clean and very functional delivery of the core purpose.
