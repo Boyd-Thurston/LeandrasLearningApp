@@ -1,11 +1,13 @@
 // import external modules
 import React from 'react'
 import { connect } from 'react-redux'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 // local imports
 import { USER_LOG_OFF, saveUser } from '../actions'
 import { isAuthenticated } from '../utils/lib'
 import { getUserDetails } from '../apis'
+import Nav from './Nav'
 
 // define class component 
 export class App extends React.Component {
@@ -24,14 +26,22 @@ export class App extends React.Component {
   // render the App component
   render(){
     return(
-      <>
-        <h1>Development has begun</h1>
-        <h2>Behold I am the App component</h2>
-        {/* log out functionality call/username display */}
-        <h2>Example of logged in user</h2>
-        {this.props.user.hasOwnProperty('username')? <p>Hello {this.props.user.username}</p>: <p>you are not logged in</p>}
-        <button onClick={this.handleLogOff}>Log Off</button>
-      </>
+      <Router>
+        <Route path="/">
+          <Nav>
+            {isAuthenticated()? 
+            <>
+              {/* log out functionality call/username display */}
+              <p>Hello {this.props.user.username}</p>
+              <button onClick={this.handleLogOff}>Log Off</button>
+            </>
+            : 
+            <>
+            <p>is not authed</p>
+            </>}
+          </Nav>
+        </Route>
+      </Router>    
     )
   }
 }
