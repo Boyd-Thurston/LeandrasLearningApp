@@ -1,13 +1,15 @@
 // import external modules
 import React from 'react'
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 // local imports
 import { USER_LOG_OFF, saveUser } from '../actions'
 import { isAuthenticated } from '../utils/lib'
 import { getUserDetails } from '../apis'
 import Nav from './Nav'
+import AuthSignIn from './AuthSignIn'
+import AuthRegister from './AuthRegister'
 
 // define class component 
 export class App extends React.Component {
@@ -29,6 +31,9 @@ export class App extends React.Component {
       <Router>
         <Route path="/">
           <Nav>
+            <Link to="/">
+              <img src="/favicon-32x32.png" alt="logo"/>
+            </Link>
             {isAuthenticated()? 
             <>
               {/* log out functionality call/username display */}
@@ -37,10 +42,18 @@ export class App extends React.Component {
             </>
             : 
             <>
-            <p>is not authed</p>
+              <p>you are not signed in</p>
+              <Link to="/auth/signin">
+                <button> Sign In </button>
+              </Link>
+              <Link to="/auth/register">
+                <button> Register </button>
+              </Link>
             </>}
           </Nav>
         </Route>
+        <Route path="/auth/signin" component={AuthSignIn}/>
+        <Route path="/auth/register" component={AuthRegister}/>
       </Router>    
     )
   }
