@@ -1,10 +1,11 @@
 :root {
   --main-bg-colour: #F5F;
   --main-font-colour: #222;
+  --main-font-text: 'Merriweather', serif;
 }
 
 body {
-  font-family: 'Aguafina Script', cursive;
+  font-family: var(--main-font-text)
 }
 
 /* ____________ Nav Bar ____________ */
@@ -31,5 +32,11 @@ body {
 #nav-bar-children-container * {
   font-size: 1.2rem;
   padding: 0.2em 0.4em;
-  margin: 0 0.5em;
+  margin: 0 0.2em 0 0;
+}
+
+#nav-bar-children-container button {
+  font-family: 'Aguafina Script', cursive;
+  background-color: var(--main-bg-colour);
+  border-radius: 50%;
 }
