@@ -36,7 +36,7 @@ body {
 }
 
 #nav-bar-children-container button {
-  font-family: 'Aguafina Script', cursive;
+  font-family: var(--main-font-text);
   background-color: var(--main-bg-colour);
   border-radius: 50%;
 }
