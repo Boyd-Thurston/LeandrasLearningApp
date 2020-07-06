@@ -31,9 +31,6 @@ export class App extends React.Component {
       <Router>
         <Route path="/">
           <Nav>
-            <Link to="/">
-              <img src="/favicon-32x32.png" alt="logo"/>
-            </Link>
             {isAuthenticated()? 
             <>
               {/* log out functionality call/username display */}

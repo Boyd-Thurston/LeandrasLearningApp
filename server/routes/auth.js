@@ -12,7 +12,7 @@ const router = express.Router()
 // define routes
 router.post('/register', register, token.issue)
 router.post('/signin', signIn, token.issue)
-router.get('/user', verifyJwt({secret: process.env.JWT_SECRET, algorithms: ['RS256']}), getUser)
+router.get('/user', verifyJwt({secret: process.env.JWT_SECRET, algorithms: ['HS256']}), getUser)
 
 
 // supporting functions to routs
