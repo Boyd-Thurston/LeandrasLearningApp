@@ -49,6 +49,7 @@ export class App extends React.Component {
             </>}
           </Nav>
         </Route>
+        <Route exact path="/" component={Home}/>
         <Route path="/auth/signin" component={AuthSignIn}/>
         <Route path="/auth/register" component={AuthRegister}/>
       </Router>    
