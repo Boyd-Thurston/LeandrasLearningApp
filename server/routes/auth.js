@@ -11,6 +11,7 @@ const router = express.Router()
 
 // define routes
 router.post('/register/parent', registerParentUser, token.issue)
+router.post('/register/child', verifyJwt({secret: process.env.JWT_SECRET, algorithms: ['HS256']}), registerChildUser)
 router.post('/signin', signIn, token.issue)
 router.get('/user', verifyJwt({secret: process.env.JWT_SECRET, algorithms: ['HS256']}), getUser)
 
@@ -37,6 +38,34 @@ function registerParentUser (req, res, next) {
       })
     })
 }
+
+function registerChildUser (req, res, next) {
+  const { username, password } = req.body
+  const parent_id = req.user.id
+  createParentUser({username, password, parent_id})
+    .then(([id]) => {
+      res.status(201).json({
+        ok: true,
+        message: `Child user with id of ${id} was created`
+      })
+      next()
+    })
+    .catch(({message}) => {
+      // todo research how this works in Postgres
+      if(message.includes('UNIQUE constraint failed: users.username')){
+        return res.status(400).json({
+          ok: false,
+          message: 'Username already exists.'
+        })
+      }
+      res.status(500).json({
+        ok: false,
+        message: "Something bad happend. We don't know why."
+      })
+    })
+}
+
+
 
 function signIn (req, res, next) {
   const { username, password } = req.body

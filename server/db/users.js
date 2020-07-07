@@ -4,10 +4,16 @@ const { generateHash, verifyHash } = require('../auth/hash')
 
 // users table db functions
 
-// creates a new user entry upon registeration
+// creates a new user entry upon parent registeration
 function createParentUser ({username, password, email }, db = connection) {
   return generateHash(password)
     .then(hash => db('users').insert({username, hash, email}))
+}
+
+// creates a new user entry upon child registeration
+function createChildUser ({username, password, parent_id }, db = connection) {
+  return generateHash(password)
+    .then(hash => db('users').insert({username, hash, parent_id}))
 }
 
 // verifies a users credentails upon sing in
@@ -35,6 +41,7 @@ function getUserById (id,db =connection) {
 // export functions
 module.exports = {
   createParentUser,
+  createChildUser,
   verifyUser,
   getUserById
 }
