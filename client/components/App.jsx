@@ -11,6 +11,7 @@ import Nav from './Nav'
 import AuthSignIn from './AuthSignIn'
 import AuthRegister from './AuthRegister'
 import Home from './Home'
+import AuthRegisterChild from './AuthRegisterChild'
 
 // define class component 
 export class App extends React.Component {
@@ -53,7 +54,8 @@ export class App extends React.Component {
         </Route>
         <Route exact path="/" component={Home}/>
         <Route path="/auth/signin" component={AuthSignIn}/>
-        <Route path="/auth/register" component={AuthRegister}/>
+        <Route exact path="/auth/register" component={AuthRegister}/>
+        <Route path="/auth/rgister/child" component={AuthRegisterChild}/>
       </Router>    
     )
   }

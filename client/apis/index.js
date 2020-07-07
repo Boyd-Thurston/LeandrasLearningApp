@@ -20,6 +20,8 @@ export function addNewParentUser(user) {
 // reister a new child user
 export function addNewChildUser(user) {
   return request.post(`${baseUrl}${authRoute}/register/child`)
+    .set({ 'Content-Type': 'application/json'})
+    .set({ 'Authorization': `Bearer ${getToken()}`})
     .send(user)
     .then(res => res.body)
 }

@@ -1,5 +1,6 @@
 // import external modules
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 // local imports
 
@@ -7,8 +8,9 @@ import React from 'react'
 function DashboardParent () {
   return (
     <div className="container">
-      <button className="button">Register a child</button>
-      <button className="button">View a childs progress</button>
+      <Link to="/auth/rgister/child">
+        <button className="button">Register a child</button>      
+      </Link>
     </div>
   )
 }

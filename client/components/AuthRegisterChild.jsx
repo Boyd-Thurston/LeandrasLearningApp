@@ -26,10 +26,10 @@ class AuthRegisterChild extends React.Component {
     // passwords match validation
     if(this.state.registerPassword === this.state.registerConfirmPassword){
       // POST register action call
-      this.props.dispatch(addNewChildUser({
+      addNewChildUser({
         username: this.state.registerUser,
         password: this.state.registerPassword,
-      }))
+      })
       // reset state
       this.setState({
         registerUser: '',
