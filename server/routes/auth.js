@@ -3,22 +3,22 @@ const express = require('express')
 const verifyJwt = require('express-jwt')
 
 // local imports
-const { createUser, verifyUser, getUserById } = require('../db/users')
+const { createParentUser, verifyUser, getUserById } = require('../db/users')
 const token = require('../auth/token')
 
 // define router
 const router = express.Router()
 
 // define routes
-router.post('/register', register, token.issue)
+router.post('/register/parent', registerParentUser, token.issue)
 router.post('/signin', signIn, token.issue)
 router.get('/user', verifyJwt({secret: process.env.JWT_SECRET, algorithms: ['HS256']}), getUser)
 
 
 // supporting functions to routs
-function register (req, res, next) {
+function registerParentUser (req, res, next) {
   const { username, password, email } = req.body
-  createUser({username, password, email})
+  createParentUser({username, password, email})
     .then(([id]) => {
       res.locals.userId = id
       next()
@@ -53,9 +53,11 @@ function signIn (req, res, next) {
 
 function getUser (req, res) {
   getUserById(req.user.id)
-    .then(({username}) => res.json({
+    .then(({username, isChild, parentId}) => res.json({
       ok: true,
-      username
+      username,
+      isChild,
+      parentId
     }))
     .catch(() => res.status(500).json({
       ok: false,

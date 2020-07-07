@@ -1,5 +1,5 @@
 // local imports
-import { addNewUser, userSignIn, getUserDetails } from '../apis'
+import { addNewParentUser, userSignIn, getUserDetails } from '../apis'
 import { setToken } from '../utils/lib'
 
 // export action calls
@@ -32,7 +32,7 @@ export function logIn(creds){
 // register function
 export function newUserLogIn(details){
   return dispatch => {
-    addNewUser(details)
+    addNewParentUser(details)
     .then(resBody => {
       setToken(resBody.token)
       return resBody

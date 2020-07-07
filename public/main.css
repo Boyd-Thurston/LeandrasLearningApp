@@ -7,7 +7,8 @@
 /* ____________ General Styles __________ */
 
 body {
-  font-family: var(--main-font-text)
+  font-family: var(--main-font-text);
+  color: var(--main-font-colour);
 }
 
 form {
