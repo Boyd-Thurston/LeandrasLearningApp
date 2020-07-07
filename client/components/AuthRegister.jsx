@@ -53,16 +53,15 @@ class AuthRegister extends React.Component {
   render(){
     return(
       <form onSubmit={this.handleRegister}>
-        <h2>Example Registration Form</h2>
-        <label>email: </label>
-        <input onChange={this.handleChange} name='registerEmail' value={this.state.registerEmail} type='text'/>
         <label>username: </label>
         <input onChange={this.handleChange} name='registerUser' value={this.state.registerUser} type='text'/>
-        <label>  password: </label>
+        <label>password: </label>
         <input onChange={this.handleChange} name='registerPassword' value={this.state.registerPassword} type='password'/>
-        <label>  confirm password: </label>
+        <label>confirm password: </label>
         <input onChange={this.handleChange} name='registerConfirmPassword' value={this.state.registerConfirmPassword} type='password'/>
-        <input type='submit' value='Register'/>
+        <label>email: </label>
+        <input onChange={this.handleChange} name='registerEmail' value={this.state.registerEmail} type='text'/>
+        <input className="button" type='submit' value='Register'/>
         {/* passwords do not match error message */}
         {this.state.registerPassword.length > 1 && this.state.registerConfirmPassword.length > 1 && this.state.registerPassword != this.state.registerConfirmPassword && <p> passwords do not match!</p>}
       </form>

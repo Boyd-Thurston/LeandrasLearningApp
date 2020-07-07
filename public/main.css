@@ -11,6 +11,7 @@ body {
 }
 
 form {
+  margin-top: 1.5em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,6 +28,7 @@ form * {
   font-family: var(--main-font-text);
   background-color: var(--main-bg-colour);
   border-radius: 50%;
+  cursor: pointer;
 }
 
 /* _______________ Nav Bar ______________ */
