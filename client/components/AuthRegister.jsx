@@ -39,6 +39,7 @@ class AuthRegister extends React.Component {
         registerPassword: '',
         registerConfirmPassword: ''
       })
+      this.props.history.push('/')
     } 
     else{
       // clear bad passwords

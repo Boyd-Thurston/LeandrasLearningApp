@@ -32,6 +32,7 @@ export class AuthSignIn extends React.Component {
       signInUser: '',
       signInPassword: ''
     })
+    this.props.history.push('/')
   }
 
   // render the App component

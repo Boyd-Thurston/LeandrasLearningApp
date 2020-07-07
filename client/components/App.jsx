@@ -10,6 +10,7 @@ import { getUserDetails } from '../apis'
 import Nav from './Nav'
 import AuthSignIn from './AuthSignIn'
 import AuthRegister from './AuthRegister'
+import Home from './Home'
 
 // define class component 
 export class App extends React.Component {
@@ -23,6 +24,7 @@ export class App extends React.Component {
   // event handler for user log off
   handleLogOff = () => {
     this.props.dispatch({type: USER_LOG_OFF})
+    this.props.history.push('/')
   }
 
   // render the App component
