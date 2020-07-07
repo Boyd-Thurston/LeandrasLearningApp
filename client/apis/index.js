@@ -10,9 +10,16 @@ const authRoute = '/auth'
 
 // api calls
 
-// reister a new user
+// reister a new parent user
 export function addNewParentUser(user) {
   return request.post(`${baseUrl}${authRoute}/register/parent`)
+    .send(user)
+    .then(res => res.body)
+}
+
+// reister a new child user
+export function addNewChildUser(user) {
+  return request.post(`${baseUrl}${authRoute}/register/child`)
     .send(user)
     .then(res => res.body)
 }
