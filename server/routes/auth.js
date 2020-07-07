@@ -3,7 +3,7 @@ const express = require('express')
 const verifyJwt = require('express-jwt')
 
 // local imports
-const { createParentUser, verifyUser, getUserById } = require('../db/users')
+const { createParentUser, createChildUser, verifyUser, getUserById } = require('../db/users')
 const token = require('../auth/token')
 
 // define router
@@ -42,7 +42,7 @@ function registerParentUser (req, res, next) {
 function registerChildUser (req, res, next) {
   const { username, password } = req.body
   const parent_id = req.user.id
-  createParentUser({username, password, parent_id})
+  createChildUser({username, password, parent_id})
     .then(([id]) => {
       res.status(201).json({
         ok: true,

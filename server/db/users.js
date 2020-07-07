@@ -13,7 +13,7 @@ function createParentUser ({username, password, email }, db = connection) {
 // creates a new user entry upon child registeration
 function createChildUser ({username, password, parent_id }, db = connection) {
   return generateHash(password)
-    .then(hash => db('users').insert({username, hash, parent_id}))
+    .then(hash => db('users').insert({username, hash, is_child: true, parent_id}))
 }
 
 // verifies a users credentails upon sing in
