@@ -4,11 +4,32 @@
   --main-font-text: 'Merriweather', serif;
 }
 
+/* ____________ General Styles __________ */
+
 body {
   font-family: var(--main-font-text)
 }
 
-/* ____________ Nav Bar ____________ */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+form * {
+  font-size: 1.2rem;
+  padding: 0.2em;
+  margin: 0.2em;
+}
+
+.button {
+  font-family: var(--main-font-text);
+  background-color: var(--main-bg-colour);
+  border-radius: 50%;
+}
+
+/* _______________ Nav Bar ______________ */
 
 #nav-bar {
   display: flex;
@@ -35,8 +56,4 @@ body {
   margin: 0 0.2em 0 0;
 }
 
-#nav-bar-children-container button {
-  font-family: var(--main-font-text);
-  background-color: var(--main-bg-colour);
-  border-radius: 50%;
-}
+

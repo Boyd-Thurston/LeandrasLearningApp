@@ -35,16 +35,16 @@ export class App extends React.Component {
             <>
               {/* log out functionality call/username display */}
               <p>Hello {this.props.user.username}</p>
-              <button onClick={this.handleLogOff}>Log Off</button>
+              <button className="button" onClick={this.handleLogOff}>Log Off</button>
             </>
             : 
             <>
               <p>you are not signed in</p>
               <Link to="/auth/signin">
-                <button> Sign In </button>
+                <button className="button"> Sign In </button>
               </Link>
               <Link to="/auth/register">
-                <button> Register </button>
+                <button className="button"> Register </button>
               </Link>
             </>}
           </Nav>
