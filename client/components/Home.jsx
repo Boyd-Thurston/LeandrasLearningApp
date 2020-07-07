@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 // local imports
 import { isAuthenticated } from '../utils/lib'
+import DashboardParent from './DashboardParent'
 
 // define functional component 
 function Home (props) {
@@ -12,7 +13,7 @@ function Home (props) {
       {/* display landing page if not signed in */}
       {!isAuthenticated() && <p>I will be the landing page component</p>}
       {/* display parent dashboard if signed in as a parent user */}
-      {isAuthenticated() && props.user.isChild == 0 && <p>I will be the parent dashboard component</p> }
+      {isAuthenticated() && props.user.isChild == 0 && <DashboardParent/> }
       {/* display child dashboard if signed in as a child user */}
       {isAuthenticated() && props.user.isChild == 1 && <p>I will be the child dashboard component</p>}
     </>
