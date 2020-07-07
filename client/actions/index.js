@@ -11,6 +11,8 @@ export function saveUser(details){
   return {
     type: SAVE_USER,
     username: details.username,
+    isChild: details.isChild,
+    parentId: details.parentId
   }
 }
 
