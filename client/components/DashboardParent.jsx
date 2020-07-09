@@ -3,6 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 // local imports
+import ParentChildList from './ParentChildList'
 
 // define functional component 
 function DashboardParent () {
@@ -11,6 +12,7 @@ function DashboardParent () {
       <Link to="/auth/rgister/child">
         <button className="button">Register a child</button>      
       </Link>
+      <ParentChildList/>
     </div>
   )
 }

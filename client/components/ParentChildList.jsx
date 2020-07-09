@@ -3,11 +3,15 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 // local imports
+import { fetchChildrenList } from '../actions'
 
 // define class component
 class ParentChildList extends React.Component {
+
   componentDidMount(){
     // call thunk to fetch children added by this parent account
+    console.log('has mounted');
+    this.props.dispatch(fetchChildrenList())
   }
 
   render(){
@@ -15,7 +19,10 @@ class ParentChildList extends React.Component {
       <>
         {this.props.children.length >= 1? 
           // map list of children 
-          <p>I am the map of listed children</p>:
+          <>
+            <p>I am the map of listed children</p>
+          </>
+          :
           <p>you have no children registered</p>
         }
       </>
