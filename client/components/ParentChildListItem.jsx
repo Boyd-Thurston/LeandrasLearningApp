@@ -8,16 +8,24 @@ class ParentChildListItem extends React.Component {
     expanded: false
   }
 
+  handleClick = event => {
+    if(this.state.expanded) {
+      this.setState({expanded: false})
+    } else {
+      this.setState({expanded: true})
+    }
+  }
+
   render(){
     return (
-      <div>
+      <div onClick={this.handleClick}>
         <div>
           <h4>{this.props.username}</h4>
         </div>
-        {this.state.expanded &&
-          <div>
-            <p>I will be statistical data</p>
-          </div>
+        {this.state.expanded == true &&
+        <div>
+          <p>I will be statistical data</p>
+        </div>
         }
       </div>
     )
