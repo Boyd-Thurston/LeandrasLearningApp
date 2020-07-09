@@ -64,19 +64,25 @@ Frontend frameworks:
 - Redux
 - Thunk
 - Webpack
+
 DB and framework:
 - Knex
 - SQLite3
-Server
+
+Server:
 - Express
-Authoirsation
+
+Authoirsation:
 - Sodium
 - Jsonwebtoken
 - Express-jwt
-Transpiler
+
+Transpiler:
 - babel
-cross system dev compatability
+
+cross system dev compatability:
 - npm-run-all
+
 Test Suite:
 - Jest
 - Enzyme
