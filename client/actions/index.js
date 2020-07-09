@@ -1,10 +1,11 @@
 // local imports
-import { addNewParentUser, userSignIn, getUserDetails } from '../apis'
+import { addNewParentUser, userSignIn, getUserDetails, getChildrenList } from '../apis'
 import { setToken } from '../utils/lib'
 
 // export action calls
 export const SAVE_USER = 'SAVE_USER'
 export const USER_LOG_OFF = 'USER_LOG_OFF'
+export const PARENT_SAVE_CHILDREN_LIST = 'PARENT_SAVE_CHILDREN_LIST'
 
 // define dispatch actions
 export function saveUser(details){
@@ -45,3 +46,12 @@ export function newUserLogIn(details){
 }
 
 // fetch children list from DB based on parent account id
+export function fetchChildrenList () {
+  return dispatch => {
+    getChildrenList()
+    .then(childrenList => {dispatch({
+      type: PARENT_SAVE_CHILDREN_LIST,
+      children: childrenList
+    })})
+  }
+}
