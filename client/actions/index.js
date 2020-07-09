@@ -47,7 +47,6 @@ export function newUserLogIn(details){
 
 // fetch children list from DB based on parent account id
 export function fetchChildrenList () {
-  console.log('is fetching');
   return dispatch => {
     getChildrenList()
     .then(childrenList => {dispatch({

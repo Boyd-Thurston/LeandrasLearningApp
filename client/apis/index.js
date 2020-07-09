@@ -44,7 +44,6 @@ export function getUserDetails(userId) {
 
 // get a list of children registered by loged in parent
 export function getChildrenList(){
-  console.log('api has been called');
   return request.get(`${baseUrl}${parentRoute}/children`)
   .set({ 'Content-Type': 'application/json'})
   .set({ 'Authorization': `Bearer ${getToken()}`})

@@ -10,7 +10,6 @@ class ParentChildList extends React.Component {
 
   componentDidMount(){
     // call thunk to fetch children added by this parent account
-    console.log('has mounted');
     this.props.dispatch(fetchChildrenList())
   }
 
