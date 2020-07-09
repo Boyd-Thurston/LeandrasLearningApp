@@ -1,8 +1,11 @@
+// USER TABLE DATABASE FUNCTIONS
+// 
+// this set of functions contains all the db queries the relate 
+// specificaly to the user table in the db.
+
 // local imports
 const connection = require('./connection')
 const { generateHash, verifyHash } = require('../auth/hash')
-
-// users table db functions
 
 // creates a new user entry upon parent registeration
 function createParentUser ({username, password, email }, db = connection) {
@@ -34,8 +37,13 @@ function verifyUser (username, password , db = connection) {
 }
 
 // get a users profile
-function getUserById (id,db =connection) {
+function getUserById (id, db = connection) {
   return db('users').where('id', id).select('username', 'is_child AS isChild', 'parent_id AS parentId').first()
+}
+
+// get a list of children registered by a parent by the parent id
+function getChildrenByParentId (id, db = connection) {
+  return db('users').where('parent_id', id).select('username', 'id')
 }
 
 // export functions
@@ -43,5 +51,6 @@ module.exports = {
   createParentUser,
   createChildUser,
   verifyUser,
-  getUserById
+  getUserById,
+  getChildrenByParentId
 }
