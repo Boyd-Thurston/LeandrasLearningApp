@@ -1,0 +1,29 @@
+// import external modules
+import React from 'react'
+
+// define class component
+class ParentChildListItem extends React.Component {
+
+  state = {
+    expanded: false
+  }
+
+  render(){
+    return (
+      <div>
+        <div>
+          <h4>{this.props.username}</h4>
+        </div>
+        {this.state.expanded &&
+          <div>
+            <p>I will be statistical data</p>
+          </div>
+        }
+      </div>
+    )
+  }
+}
+
+// export class component
+export default ParentChildListItem
+

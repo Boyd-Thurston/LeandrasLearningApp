@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 // local imports
 import { fetchChildrenList } from '../actions'
+import ParentChildListItem from './ParentChildListItem'
 
 // define class component
 class ParentChildList extends React.Component {
@@ -20,6 +21,7 @@ class ParentChildList extends React.Component {
           // map list of children 
           <>
             <p>I am the map of listed children</p>
+            {this.props.children.map( (aChild, index ) => <ParentChildListItem key={index} username={aChild.username} id={aChild.id}/> )}
           </>
           :
           <p>you have no children registered</p>
