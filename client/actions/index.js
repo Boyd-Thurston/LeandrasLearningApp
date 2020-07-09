@@ -43,3 +43,5 @@ export function newUserLogIn(details){
     .then(userDetails => {dispatch(saveUser(userDetails))})
   }
 }
+
+// fetch children list from DB based on parent account id
