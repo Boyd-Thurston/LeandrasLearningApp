@@ -9,8 +9,12 @@ function DashboardChild () {
   return (
     <div>
       <div>
-        <button className='button'><h2>Start learning</h2></button>
-        <button className='button'><h2>Decorate your avatar</h2></button>
+        <Link to='/learning'>
+          <button className='button'><h2>Start learning</h2></button>
+        </Link>
+        <Link to='/avatar'>
+          <button className='button'><h2>Decorate your avatar</h2></button>
+        </Link>
       </div>
       <div>
         <button className='button'><h2>Play a game</h2></button>
