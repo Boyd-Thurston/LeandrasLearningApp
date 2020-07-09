@@ -12,9 +12,9 @@ This project fills two purposes. The primary purpose is to provide a learning ap
 I envision this app having two distinct types of users: the parents setting up their children on the app and viewing reports on their progress and the children making use of the app.
 
 The MVP user stories are as follows:
-- [ ] As a user I want to be able to login to the app
-- [ ] As a parent user I want to be able to register for the app
-- [ ] As a parent user I want to be able to register a child for the app
+- [x] As a user I want to be able to login to the app
+- [x] As a parent user I want to be able to register for the app
+- [x] As a parent user I want to be able to register a child for the app
 - [ ] As a parent user I want to be able to see my child's progress on the app
 - [ ] As a child user I want to be able to play educational games on the app
 - [ ] As a child user I want to be able to see my accumulated success on the app
