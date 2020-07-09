@@ -43,7 +43,7 @@ function getUserById (id, db = connection) {
 
 // get a list of children registered by a parent by the parent id
 function getChildrenByParentId (id, db = connection) {
-  return db('users').where('parent_id', id).select('username', 'id')
+  return db('users').where('parent_id', id).select('*')
 }
 
 // export functions
