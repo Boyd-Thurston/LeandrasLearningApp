@@ -20,7 +20,7 @@ class ParentChildList extends React.Component {
         {this.props.children.length >= 1? 
           // map list of children 
           <>
-            <p>I am the map of listed children</p>
+            <h3>Registered Children:</h3>
             {this.props.children.map( (aChild, index ) => <ParentChildListItem key={index} username={aChild.username} id={aChild.id}/> )}
           </>
           :

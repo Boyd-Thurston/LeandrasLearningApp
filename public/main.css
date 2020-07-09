@@ -73,4 +73,25 @@ form * {
   margin: 0 0.2em 0 0;
 }
 
+/* __________ Expandable Div's __________ */
 
+.expandable-div {
+  background: var(--main-bg-colour);
+  width: 30%;
+  margin: 0.5em;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+.expandable-div-constant-content {
+  text-align: center;
+}
+
+.expandable-div-hideable-content {
+  background-color: white;
+  margin: 1em;
+  font-size: 1rem;
+  border-radius: 1em;
+  text-align: center;
+  padding: 0.5em;
+}

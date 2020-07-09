@@ -18,13 +18,14 @@ class ParentChildListItem extends React.Component {
 
   render(){
     return (
-      <div onClick={this.handleClick}>
-        <div>
-          <h4>{this.props.username}</h4>
+      <div className="expandable-div" onClick={this.handleClick}>
+        <div className='expandable-div-constant-content'>
+          <h3>{this.props.username}</h3>
         </div>
         {this.state.expanded == true &&
-        <div>
+        <div className='expandable-div-hideable-content'>
           <p>I will be statistical data</p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo molestias quibusdam dolore sit impedit, soluta libero nostrum laboriosam fugiat reprehenderit veniam error a minus! Magnam eveniet nobis quae architecto numquam?
         </div>
         }
       </div>
