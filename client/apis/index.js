@@ -7,6 +7,7 @@ import { getToken } from '../utils/lib'
 // define routes URLS
 const baseUrl = '/api/v1'
 const authRoute = '/auth'
+const parentRoute = '/parent'
 
 // api calls
 
@@ -36,7 +37,15 @@ export function userSignIn(credentails) {
 // get a varified users details
 export function getUserDetails(userId) {
   return request.get(`${baseUrl}${authRoute}/user`)
-    .set({ 'Content-Type': 'application/json'})
-    .set({ 'Authorization': `Bearer ${getToken()}`})
-    .then(res => res.body)
+  .set({ 'Content-Type': 'application/json'})
+  .set({ 'Authorization': `Bearer ${getToken()}`})
+  .then(res => res.body)
+}
+
+// get a list of children registered by loged in parent
+export function getChildrenList(){
+  return request.get(`${baseUrl}${parentRoute}/children`)
+  .set({ 'Content-Type': 'application/json'})
+  .set({ 'Authorization': `Bearer ${getToken()}`})
+  .then(res => res.body)
 }
