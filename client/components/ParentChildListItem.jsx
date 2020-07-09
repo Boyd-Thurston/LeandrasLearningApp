@@ -1,5 +1,6 @@
 // import external modules
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 // define class component
 class ParentChildListItem extends React.Component {
@@ -26,6 +27,7 @@ class ParentChildListItem extends React.Component {
         <div className='expandable-div-hideable-content'>
           <p>I will be statistical data</p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo molestias quibusdam dolore sit impedit, soluta libero nostrum laboriosam fugiat reprehenderit veniam error a minus! Magnam eveniet nobis quae architecto numquam?
+          <Link to={`/statistics:${this.props.id}`}>more detail</Link>
         </div>
         }
       </div>

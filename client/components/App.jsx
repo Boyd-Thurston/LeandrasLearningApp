@@ -59,6 +59,9 @@ export class App extends React.Component {
         <Route path="/auth/rgister/child" component={AuthRegisterChild}/>
         <Route path='/learning' render={(props) => (<UnderConstruction  name={'learning'}/>)}/>
         <Route path='/avatar' render={(props) => (<UnderConstruction name={'avatar'}/>)}/>
+        <Route path='/play' render={(props) => (<UnderConstruction name={'play game'}/>)}/>
+        <Route path='/progress' render={(props) => (<UnderConstruction name={'progress'}/>)}/>
+        <Route path='/statistics:id' render={(props) => (<UnderConstruction name={'statistics'}/>)}/>
       </Router>    
     )
   }

@@ -17,8 +17,12 @@ function DashboardChild () {
         </Link>
       </div>
       <div>
-        <button className='button'><h2>Play a game</h2></button>
-        <button className='button'><h2>See how you are doing</h2></button>
+        <Link to='/play'>
+          <button className='button'><h2>Play a game</h2></button>
+        </Link>
+        <Link to='/progress'>
+          <button className='button'><h2>See how you are doing</h2></button>
+        </Link>
       </div>
     </div>
   )
