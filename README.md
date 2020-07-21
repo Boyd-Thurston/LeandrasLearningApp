@@ -45,8 +45,7 @@ Children will collect mock currency from completing activities and its use will 
 
 This section defines the db tables used in this add and the data types for each column
 
-                *Users*                
-
+*Users*                
 |  Column   | Data Type |  Constraints  |
 |-----------|-----------|---------------|
 | id        | Integer   | PK increments |
@@ -57,8 +56,7 @@ This section defines the db tables used in this add and the data types for each 
 | parent_id | Integer   |               |
 
 
-                   *Statistics*                    
-
+*Statistics*                    
 |  Column               | Data Type |  Constraints  |
 |-----------------------|-----------|---------------|
 | id                    | Integer   | PK increments |
