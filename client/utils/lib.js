@@ -31,3 +31,9 @@ export function getRandomNumber (min, max ) {
   max = Math.floor(max)
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
+
+// random selection from given array
+export function getRandomSelection (array) {
+  randomInex = Math.floor(Math.random() * array.length())
+  return array[randomInex]
+}
