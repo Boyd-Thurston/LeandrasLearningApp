@@ -23,17 +23,42 @@ export function isAuthenticated () {
   }
 }
 
-// ______ RANDOM FUNCTIONS _______
+// _______ RANDOMISER FUNCTIONS _______
 
 // random number generater
 export function getRandomNumber (min, max ) {
+  // set variables
   min = Math.ceil(min)
   max = Math.floor(max)
+  // generate random number and return value
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
 // random selection from given array
 export function getRandomSelection (array) {
+  // get random value to use for index
   randomInex = Math.floor(Math.random() * array.length())
+  // return selected item from the array
   return array[randomInex]
+}
+
+// randomly shuffles the order of a given array
+export function getShuffledArray (array) {
+  // set variables
+  shuffledArray = []
+  unshuffledArray = [...array]
+  
+  // loop throuhg passed array
+  while(shuffledArray.length() != array.length()){
+    // get random value to use for index
+    randomInex = Math.floor(Math.random() * unshuffledArray.length())
+    // push random selcted item to shuffled array
+    shuffledArray.push(unshuffledArray[randomInex])
+    // remove selected item form unshuffled array
+    unshuffledArray.splice(randomIndex, 1)
+    if(shuffledArray.length() == array.length()){
+      // return the shuffled array
+      return shuffledArray
+    }
+  }
 }
