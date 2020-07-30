@@ -12,7 +12,8 @@ class GameMathsAttack extends React.Component {
     firstNumber = '',
     secondNumber = '',
     operator = '',
-    answer = ''
+    answer = '',
+    message = ''
   }
 
   // generate random variables and set state to values
@@ -29,7 +30,7 @@ class GameMathsAttack extends React.Component {
     // prevent default behaviour
     event.preventDefault()
     // check answer
-
+    this.validateAnswer() ? this.setState({message: 'corret'})  : this.setState({message: 'incorrect, please try again'})
     // next action
 
     // tidy up
@@ -64,6 +65,7 @@ class GameMathsAttack extends React.Component {
   render(){
     return(
       <div>
+        {this.state.message != '' && <p>{this.state.message}</p>}
         <form onSubmit={this.handleSubmit}>
           <label id='maths-question'>
             {`${this.state.firstNumber} ${this.state.operator} ${this.state.secondNumber} = `}
