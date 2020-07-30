@@ -7,21 +7,22 @@ import { getRandomSelection, getRandomNumber } from '../utils/lib'
 
 // define class component
 class GameMathsAttack extends React.Component {
+
   // set initial state
   state = {
-    firstNumber = '',
-    secondNumber = '',
-    operator = '',
-    answer = '',
-    message = ''
+    firstNumber: '',
+    secondNumber: '',
+    operator: '',
+    answer: '',
+    message: '',
   }
 
   // generate random variables and set state to values
   componentDidMount(){
     this.setState({
-      firstNumber = getRandomNumber(1, 10),
-      secondNumber = getRandomNumber(1, 10),
-      operator = getRandomSelection(['+', '-', 'x', '÷'])
+      firstNumber: getRandomNumber(1, 10),
+      secondNumber: getRandomNumber(1, 10),
+      operator: getRandomSelection(['+', '-', 'x', '÷'])
     })
   }
 
@@ -69,7 +70,7 @@ class GameMathsAttack extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <label id='maths-question'>
             {`${this.state.firstNumber} ${this.state.operator} ${this.state.secondNumber} = `}
-            <input name='answer' value={this.state.answer} placeholder='?'/>
+            <input name='answer' value={this.state.answer} placeholder='?' onChange={this.handleChange}/>
           </label>
         </form>
       </div>
