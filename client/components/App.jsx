@@ -13,6 +13,7 @@ import AuthRegister from './AuthRegister'
 import Home from './Home'
 import AuthRegisterChild from './AuthRegisterChild'
 import UnderConstruction from './UnderConstruction'
+import Game from './Game'
 
 // define class component 
 export class App extends React.Component {
@@ -57,7 +58,7 @@ export class App extends React.Component {
         <Route path="/auth/signin" component={AuthSignIn}/>
         <Route exact path="/auth/register" component={AuthRegister}/>
         <Route path="/auth/rgister/child" component={AuthRegisterChild}/>
-        <Route path='/learning' render={(props) => (<UnderConstruction  name={'learning'}/>)}/>
+        <Route path='/learning' component={Game}/>
         <Route path='/avatar' render={(props) => (<UnderConstruction name={'avatar'}/>)}/>
         <Route path='/play' render={(props) => (<UnderConstruction name={'play game'}/>)}/>
         <Route path='/progress' render={(props) => (<UnderConstruction name={'progress'}/>)}/>
