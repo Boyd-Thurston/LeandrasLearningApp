@@ -11,8 +11,6 @@ class GameMathsAttack extends React.Component {
   state = {
     firstNumber = '',
     secondNumber = '',
-    thirdNumber = '',
-    skillLevel = 1,
     operator = '',
     answer = ''
   }
@@ -22,7 +20,6 @@ class GameMathsAttack extends React.Component {
     this.setState({
       firstNumber = getRandomNumber(1, 10),
       secondNumber = getRandomNumber(1, 10),
-      thirdNumber = getRandomNumber(1, 10),
       operator = getRandomSelection(['+', '-', 'x', '÷'])
     })
   }
