@@ -1,11 +1,12 @@
 // local imports
 import { addNewParentUser, userSignIn, getUserDetails, getChildrenList } from '../apis'
-import { setToken } from '../utils/lib'
+import { setToken, getRandomSelection } from '../utils/lib'
 
 // export action calls
 export const SAVE_USER = 'SAVE_USER'
 export const USER_LOG_OFF = 'USER_LOG_OFF'
 export const PARENT_SAVE_CHILDREN_LIST = 'PARENT_SAVE_CHILDREN_LIST'
+export const GAME_CHANGE_CURRENT = 'GAME_CHANGE_CURRENT'
 
 // define dispatch actions
 export function saveUser(details){
@@ -14,6 +15,13 @@ export function saveUser(details){
     username: details.username,
     isChild: details.isChild,
     parentId: details.parentId
+  }
+}
+
+export function changeCurrentGameRandomly() {
+  return {
+    type: GAME_CHANGE_CURRENT,
+    game: getRandomSelection(['Maths Attack'])
   }
 }
 
