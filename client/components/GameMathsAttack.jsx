@@ -16,14 +16,23 @@ class GameMathsAttack extends React.Component {
     operator: '',
     answer: '',
     message: '',
+    attempts: 0
+  }
+
+  // call to generate inital question
+  componentDidMount(){
+    this.getMathsQuestion()
   }
 
   // generate random variables and set state to values
-  componentDidMount(){
+  getMathsQuestion = () => {
     this.setState({
       firstNumber: getRandomNumber(1, 10),
       secondNumber: getRandomNumber(1, 10),
-      operator: getRandomSelection(['+', '-', 'x', '÷'])
+      operator: getRandomSelection(['+', '-', 'x', '÷']),
+      answer: '',
+      message: '',
+      attempts: 0
     })
   }
 
@@ -31,18 +40,15 @@ class GameMathsAttack extends React.Component {
   handleSubmit = event => {
     // prevent default behaviour
     event.preventDefault()
+    // update attempt count
+    this.setState({
+      attempts: this.state.attempts + 1
+    })
     // check answer
     this.validateAnswer() ? this.setState({message: 'corret'})  : this.setState({message: 'incorrect, please try again'})
     // tidy up
-    this.setState(
-      {
-        firstNumber: '',
-        secondNumber: '',
-        operator: '',
-        answer: '',
-        message: '',
-      }
-    )
+    // ToDo: send update to child statistics
+    this.getMathsQuestion()
     // next action
     this.props.dispatch({type: CLEAR})
     this.props.dispatch(changeCurrentGameRandomly())
