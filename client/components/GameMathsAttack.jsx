@@ -60,7 +60,7 @@ class GameMathsAttack extends React.Component {
       // next action
       this.getNewGame()
       // ToDo: send update to child statistics
-    ): this.state.attempts >= 3 ? (
+    ): this.state.attempts >= 2 ? (
       this.setState({message: "Don't worry, you will do better next time. Lets try somthing else"})
       // // tidy up
       // this.getMathsQuestion(),
@@ -103,7 +103,7 @@ class GameMathsAttack extends React.Component {
     return(
       <div>
         {this.state.message != '' && <p>{this.state.message}</p>}
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} autoComplete="off">
           <label id='maths-question'>
             {`${this.state.firstNumber} ${this.state.operator} ${this.state.secondNumber} = `}
             <input name='answer' value={this.state.answer} placeholder='?' onChange={this.handleChange}/>
