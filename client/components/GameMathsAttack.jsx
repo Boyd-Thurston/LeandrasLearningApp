@@ -106,7 +106,7 @@ class GameMathsAttack extends React.Component {
         <form onSubmit={this.handleSubmit} autoComplete="off">
           <label id='maths-question'>
             {`${this.state.firstNumber} ${this.state.operator} ${this.state.secondNumber} = `}
-            <input name='answer' value={this.state.answer} placeholder='?' onChange={this.handleChange}/>
+            <input name='answer' value={this.state.answer} placeholder='?' onChange={this.handleChange} autoFocus/>
           </label>
         </form>
       </div>
