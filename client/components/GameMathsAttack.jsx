@@ -46,21 +46,31 @@ class GameMathsAttack extends React.Component {
   handleSubmit = event => {
     // prevent default behaviour
     event.preventDefault()
+
     // update attempt count
     this.setState({
       attempts: this.state.attempts + 1
     })
+
     // check answer
     this.validateAnswer() ? (
       this.setState({message: 'corret'}),
+      // tidy up
       this.getMathsQuestion(),
+      // next action
       this.getNewGame()
-    ): this.setState({message: 'incorrect, please try again'})
-    // tidy up
-    // ToDo: send update to child statistics
-   
-    // next action
-
+      // ToDo: send update to child statistics
+    ): this.state.attempts >= 3 ? (
+      this.setState({message: "Don't worry, you will do better next time. Lets try somthing else"})
+      // // tidy up
+      // this.getMathsQuestion(),
+      // // next action
+      // this.getNewGame()
+    ) : 
+      this.setState({
+        message: 'incorrect, please try again',
+        answer: ''
+      })
   }
 
   // input event handler
