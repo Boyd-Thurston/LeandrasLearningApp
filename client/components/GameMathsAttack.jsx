@@ -36,6 +36,12 @@ class GameMathsAttack extends React.Component {
     })
   }
 
+  // starts the next game
+  getNewGame = () => {
+    this.props.dispatch({type: CLEAR})
+    this.props.dispatch(changeCurrentGameRandomly())
+  }
+
   // submit event handler
   handleSubmit = event => {
     // prevent default behaviour
@@ -45,13 +51,16 @@ class GameMathsAttack extends React.Component {
       attempts: this.state.attempts + 1
     })
     // check answer
-    this.validateAnswer() ? this.setState({message: 'corret'})  : this.setState({message: 'incorrect, please try again'})
+    this.validateAnswer() ? (
+      this.setState({message: 'corret'}),
+      this.getMathsQuestion(),
+      this.getNewGame()
+    ): this.setState({message: 'incorrect, please try again'})
     // tidy up
     // ToDo: send update to child statistics
-    this.getMathsQuestion()
+   
     // next action
-    this.props.dispatch({type: CLEAR})
-    this.props.dispatch(changeCurrentGameRandomly())
+
   }
 
   // input event handler
