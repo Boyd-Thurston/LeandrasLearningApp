@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 // local imports
 import { getRandomSelection, getRandomNumber } from '../utils/lib'
+import { changeCurrentGameRandomly, CLEAR } from '../actions'
 
 // define class component
 class GameMathsAttack extends React.Component {
@@ -32,9 +33,19 @@ class GameMathsAttack extends React.Component {
     event.preventDefault()
     // check answer
     this.validateAnswer() ? this.setState({message: 'corret'})  : this.setState({message: 'incorrect, please try again'})
-    // next action
-
     // tidy up
+    this.setState(
+      {
+        firstNumber: '',
+        secondNumber: '',
+        operator: '',
+        answer: '',
+        message: '',
+      }
+    )
+    // next action
+    this.props.dispatch({type: CLEAR})
+    this.props.dispatch(changeCurrentGameRandomly())
   }
 
   // input event handler

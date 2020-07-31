@@ -7,6 +7,7 @@ export const SAVE_USER = 'SAVE_USER'
 export const USER_LOG_OFF = 'USER_LOG_OFF'
 export const PARENT_SAVE_CHILDREN_LIST = 'PARENT_SAVE_CHILDREN_LIST'
 export const GAME_CHANGE_CURRENT = 'GAME_CHANGE_CURRENT'
+export const CLEAR = 'CLEAR'
 
 // define dispatch actions
 export function saveUser(details){
@@ -21,7 +22,7 @@ export function saveUser(details){
 export function changeCurrentGameRandomly() {
   return {
     type: GAME_CHANGE_CURRENT,
-    game: getRandomSelection(['Maths Attack'])
+    game: getRandomSelection(['Maths Attack', 'Memory'])
   }
 }
 
