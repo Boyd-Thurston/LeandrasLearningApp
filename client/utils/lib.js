@@ -76,3 +76,25 @@ export function getShuffledArray (array) {
     }
   }
 }
+
+
+// ===============================
+// ______ GLOBAL VARIABLES _______
+// ===============================
+
+export const gameList = [
+  'Maths Attack',
+  'Maths Attack',
+  'Maths Attack',
+  'Maths Attack',
+  'Maths Attack',
+  // 'Reading Scroll',
+  // 'Reading Scroll',
+  // 'Reading Scroll',
+  // 'Reading Scroll',
+  // 'Memory',
+  // 'wackamole',
+  // 'Minesweeper,
+  // 'Line To',
+  // 'Drag and Drop'
+]

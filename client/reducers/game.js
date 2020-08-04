@@ -1,9 +1,9 @@
 // local imports
 import { GAME_CHANGE_CURRENT, CLEAR } from "../actions"
-import { getRandomSelection } from "../utils/lib"
+import { getRandomSelection, gameList } from "../utils/lib"
 
 // define initial state
-const initialState = getRandomSelection(['Maths Attack', 'Memory'])
+const initialState = getRandomSelection(gameList)
 
 // define reducer
 const reducer = (state = initialState, action) => {
