@@ -1,6 +1,6 @@
 // local imports
 import { addNewParentUser, userSignIn, getUserDetails, getChildrenList } from '../apis'
-import { setToken, getRandomSelection, gameList } from '../utils/lib'
+import { setToken, getRandomSelection, randomiserGameList } from '../utils/lib'
 
 // export action calls
 export const SAVE_USER = 'SAVE_USER'
@@ -22,7 +22,7 @@ export function saveUser(details){
 export function changeCurrentGameRandomly() {
   return {
     type: GAME_CHANGE_CURRENT,
-    game: getRandomSelection(gameList)
+    game: getRandomSelection(randomiserGameList)
   }
 }
 

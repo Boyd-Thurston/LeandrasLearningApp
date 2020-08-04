@@ -83,6 +83,15 @@ export function getShuffledArray (array) {
 // ===============================
 
 export const gameList = [
+  'Memory',
+  'wackamole',
+  'Minesweeper',
+  'Match them up',
+  'Drag and Drop'
+]
+
+
+export const randomiserGameList = [
   'Maths Attack',
   'Maths Attack',
   'Maths Attack',
@@ -94,7 +103,7 @@ export const gameList = [
   // 'Reading Scroll',
   // 'Memory',
   // 'wackamole',
-  // 'Minesweeper,
-  // 'Line To',
+  // 'Minesweeper',
+  // 'Match them up',
   // 'Drag and Drop'
 ]
