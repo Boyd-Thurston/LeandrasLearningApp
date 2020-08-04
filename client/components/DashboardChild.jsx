@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 // define functional component 
 function DashboardChild () {
   return (
-    <div>
+    <div className='container'>
       <div>
         <Link to='/learning'>
           <button className='button'><h2>Start learning</h2></button>
