@@ -26,19 +26,17 @@ The stretch goal user stories are as follows:
 
 ## Educational Game concept
 
-The idea behind this game is to run like an adventure game with mini-games scattered throughout. For example to fight a monster the child user will need to answer a maths question, following is a table of the actions vs the type of activity the child user will need to complete:
+The idea behind this a serries of randomly selected educational games where the children will collect mock currency from completing activities and its use will resemble decimal currency transactions with notes and coins to promote financial literacy. No real money will change hands in this app. Items purchased will be for decorating the child users avatar/pet/house etc. The children will also be able to select a game and once completed be put back into the randomly selected educational games.
 
-|      Action      |                     Activity                    |
-|------------------|-------------------------------------------------|
-| Physical action  | Answer a maths question                         |
-| Magical action   | Read a text and answer a comprehension question |
-| Temporary Boost  | Answer a basic true or false fact question      |
-| Unlock a Chest   | Complete a memory game                          |
-| Disarm a Trap    | Complete a logic game                           |
-| Purchase an Item | Complete mock currency based game               |
-| ???              | Complete a coordination based mouse game        |
-
-Children will collect mock currency from completing activities and its use will resemble decimal currency transactions with notes and coins to promote financial literacy. No real money will change hands in this app. Items purchased will be for decorating the child users avatar/pet/house etc. 
+*Games to create*
+- [x] Maths Attack
+- [x] Reading Scroll
+- [ ] Memory
+- [ ] True or False
+- [ ] Minesweeper
+- [ ] Whackamole
+- [ ] Avatar Shop (not on random game list but included)
+- [ ] Time Keeper
 
 
 ## Database tables
@@ -57,21 +55,24 @@ This section defines the db tables used in this add and the data types for each 
 
 
 ### Statistics                  
-|  Column               | Data Type |  Constraints  |
-|-----------------------|-----------|---------------|
-| id                    | Integer   | PK increments |
-| user_id               | Integer   | FK            |
-| maths_skill_level     | Integer   |               |
-| maths_addition        | Integer   |               |
-| maths_subtraction     | Integer   |               |
-| maths_multiplication  | Integer   |               |
-| maths_division        | Integer   |               |
-| reading_skill_level   | Integer   |               |
-| reading_text          | Integer   |               |
-| reading_comprehension | Integer   |               |
-| Facts                 | Integer   |               |
-| Logic                 | Integer   |               |
-| Memory                | Integer   |               |
+|  Column                  | Data Type |  Constraints  |
+|--------------------------|-----------|---------------|
+| id                       | Integer   | PK increments |
+| user_id                  | Integer   | FK            |
+| maths_skill_level        | Integer   |               |
+| maths_addition           | Integer   |               |
+| maths_subtraction        | Integer   |               |
+| maths_multiplication     | Integer   |               |
+| maths_division           | Integer   |               |
+| reading_skill_level      | Integer   |               |
+| reading_text             | Integer   |               |
+| reading_comprehension    | Integer   |               |
+| Facts                    | Integer   |               |
+| Logic                    | Integer   |               |
+| Memory                   | Integer   |               |
+| telling_time             | Integer   |               |
+| financial_literacy       | Integer   |               |
+| hand_mouse_coordernation | Integer   |               |
 
 ## Setup/Installation
 
