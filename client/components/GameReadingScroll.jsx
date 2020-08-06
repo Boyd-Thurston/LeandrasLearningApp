@@ -61,7 +61,7 @@ class GameReadingScroll extends React.Component {
   // onChange event handler
   handleChange = event => {
     this.setState({
-      selectedOption: event.target.value
+      selectedAnswer: event.target.value
     })
   }
 
@@ -128,7 +128,7 @@ class GameReadingScroll extends React.Component {
                   id={`game-reading-scroll-answer-${index + 1}`}
                   type="radio"
                   value={answer}
-                  checked={this.state.selectedOption === answer}
+                  checked={this.state.selectedAnswer === answer}
                   onChange={this.handleChange}
                 />
                 {answer}
