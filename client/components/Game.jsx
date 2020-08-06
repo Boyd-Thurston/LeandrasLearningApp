@@ -5,12 +5,14 @@ import { connect } from 'react-redux'
 // local imports
 import GameMathsAttack from './GameMathsAttack'
 import UnderConstruction from './UnderConstruction'
+import GameReadingScroll from './GameReadingScroll'
 
 // define functional component 
 function Game (props) {
   return(
     <>
       {props.game == 'Maths Attack' && <GameMathsAttack />}
+      {props.game == 'Reading Scroll' && <GameReadingScroll />}
       {props.game == 'Memory' && <UnderConstruction name='Memory Game' />}
     </>
   )
