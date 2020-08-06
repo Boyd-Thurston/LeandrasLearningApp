@@ -111,19 +111,21 @@ class GameReadingScroll extends React.Component {
               </b>
             </p>
             <p id='game-reading-scroll-text'>{this.state.text}</p>
-            <button className='button' onClick={this.displayQuestion}>Finished Reading</button>
+            <button id='game-reading-scroll-next-button' className='button' onClick={this.displayQuestion}>Finished Reading</button>
           </div>
         }
 
         {/* displayed question and posuble answers */}
         {this.state.displayed == 'question' && 
         <div>
-          <p>{this.state.question.question}</p>
-          <form onSubmit={this.handleSubmit}>
+          {this.state.message != '' && <p id='game-reading-scroll-message'>{this.state.message}</p>}
+          <p id='game-reading-scroll-question'>{this.state.question.question}</p>
+          <form id='game-reading-scroll-answers' onSubmit={this.handleSubmit}>
             {/* map posible answers to radio buttons */}
             {this.state.question.posibleAnswers.map((answer, index) => 
               <label>
                 <input
+                  id={`game-reading-scroll-answer-${index + 1}`}
                   type="radio"
                   value={answer}
                   checked={this.state.selectedOption === answer}
@@ -132,7 +134,7 @@ class GameReadingScroll extends React.Component {
                 {answer}
               </label>
             )}
-            <button className="button" type="submit">
+            <button id='game-reading-scroll-check-button' className="button" type="submit">
               check your answer
             </button>
           </form>
