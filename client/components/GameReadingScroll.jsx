@@ -123,7 +123,7 @@ class GameReadingScroll extends React.Component {
           <form id='game-reading-scroll-answers' onSubmit={this.handleSubmit}>
             {/* map posible answers to radio buttons */}
             {this.state.question.posibleAnswers.map((answer, index) => 
-              <label>
+              <label key={index}>
                 <input
                   id={`game-reading-scroll-answer-${index + 1}`}
                   type="radio"
