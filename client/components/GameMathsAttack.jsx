@@ -27,13 +27,34 @@ class GameMathsAttack extends React.Component {
   // generate random variables and set state to values
   getMathsQuestion = () => {
     this.setState({
-      firstNumber: getRandomNumber(1, 10),
-      secondNumber: getRandomNumber(1, 10),
       operator: getRandomSelection(['+', '-', 'x', '÷']),
       answer: '',
       message: '',
       attempts: 0
     })
+    const number = getRandomNumber(1, 10)
+    const answer = getRandomNumber(1, 10)
+    switch (this.state.operator) {
+      case '+':
+      case 'x':
+        this.setState({      
+          firstNumber: getRandomNumber(1, 10),
+          secondNumber: getRandomNumber(1, 10),
+        })
+        break
+      case '-':
+        this.setState({
+          firstNumber: getRandomNumber(1, 10) + number,
+          secondNumber: number,
+        })
+        break
+      case '÷':
+        this.setState({
+          firstNumber: answer * number,
+          secondNumber: number,
+        })
+        break
+    }
   }
 
   // starts the next game
