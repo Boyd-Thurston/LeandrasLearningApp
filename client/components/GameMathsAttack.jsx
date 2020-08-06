@@ -57,6 +57,10 @@ class GameMathsAttack extends React.Component {
         this.setState({
           firstNumber: number1 * number2,
           secondNumber: number2,
+          operator: operator,
+          answer: '',
+          message: '',
+          attempts: 0
         })
         break
     }
