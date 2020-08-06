@@ -16,7 +16,7 @@ The MVP user stories are as follows:
 - [x] As a parent user I want to be able to register for the app
 - [x] As a parent user I want to be able to register a child for the app
 - [ ] As a parent user I want to be able to see my child's progress on the app
-- [ ] As a child user I want to be able to play educational games on the app
+- [x] As a child user I want to be able to play educational games on the app
 - [ ] As a child user I want to be able to see my accumulated success on the app
 
 The stretch goal user stories are as follows:
