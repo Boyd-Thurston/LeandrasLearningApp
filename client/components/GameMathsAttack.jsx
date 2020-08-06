@@ -61,11 +61,11 @@ class GameMathsAttack extends React.Component {
       this.getNewGame()
       // ToDo: send update to child statistics
     ): this.state.attempts >= 2 ? (
-      this.setState({message: "Don't worry, you will do better next time. Lets try somthing else"})
+      this.setState({message: "Don't worry, you will do better next time. Lets try somthing else"}),
       // // tidy up
-      // this.getMathsQuestion(),
+      this.getMathsQuestion(),
       // // next action
-      // this.getNewGame()
+      this.getNewGame()
     ) : 
       this.setState({
         message: 'incorrect, please try again',
