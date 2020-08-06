@@ -50,6 +50,14 @@ class GameReadingScroll extends React.Component {
     this.props.dispatch(changeCurrentGameRandomly())
   }
 
+  // checks answer
+  validateAnswer = () => {
+    return(this.state.selectedAnswer == this.state.question.correctAnswer)
+  }
+
+
+  // EVENT HANDLERS
+
   // onChange event handler
   handleChange = event => {
     this.setState({
