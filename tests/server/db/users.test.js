@@ -10,9 +10,9 @@ const db_user_functions = require('../../../server/db/users')
 // build and seed test database
 beforeAll(() => {
   return database.migrate.latest()
-  // .then(() => {
-  //   return database.seed.run()
-  // })
+  .then(() => {
+    return database.seed.run()
+  })
 })
 
 test('test suite is fuctional for: "server/db/users.js"', () => {

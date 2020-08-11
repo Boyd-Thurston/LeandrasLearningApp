@@ -29,7 +29,7 @@ module.exports = {
       directory: path.join(__dirname, 'server/db/migrations')
     },
     seeds: {
-      directory: path.join(__dirname, 'server/db/seeds')
+      directory: path.join(__dirname, 'tests/server/db/seeds')
     }
   },
 
