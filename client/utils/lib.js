@@ -50,9 +50,9 @@ export function getRandomNumber (min, max ) {
 // random selection from given array
 export function getRandomSelection (array) {
   // get random value to use for index
-  const randomInex = Math.floor(Math.random() * array.length)
+  const randomIndex = Math.floor(Math.random() * array.length)
   // return selected item from the array
-  return array[randomInex]
+  return array[randomIndex]
 }
 
 
