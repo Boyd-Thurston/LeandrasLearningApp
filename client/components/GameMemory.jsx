@@ -19,118 +19,39 @@ class GameMemory extends React.Component {
   componentDidMount(){
     // selcet random tiles
       // todo: create list constant and random seletor for multiple items from list
-    const initalTiles = [
-      {
-        id: 1,
-        icon: "fas fa-spider",
-        revealed: false
-      },
-      {
-        id: 1,
-        icon: "fas fa-spider",
-        revealed: false
-      },
-      {
-        id: 2,
-        icon: "fas fa-cat",
-        revealed: false
-      },
-      {
-        id: 2,
-        icon: "fas fa-cat",
-        revealed: false
-      },
-      {
-        id: 3,
-        icon: "fas fa-truck-monster",
-        revealed: false
-      },
-      {
-        id: 3,
-        icon: "fas fa-truck-monster",
-        revealed: false
-      },
-      {
-        id: 4,
-        icon: "fas fa-bus-alt",
-        revealed: false
-      },
-      {
-        id: 4,
-        icon: "fas fa-bus-alt",
-        revealed: false
-      },
-      {
-        id: 5,
-        icon: "fas fa-snowman",
-        revealed: false
-      },
-      {
-        id: 5,
-        icon: "fas fa-snowman",
-        revealed: false
-      },
-      {
-        id: 6,
-        icon: "fas fa-apple-alt",
-        revealed: false
-      },
-      {
-        id: 6,
-        icon: "fas fa-apple-alt",
-        revealed: false
-      },
-      {
-        id: 7,
-        icon: "fas fa-robot",
-        revealed: false
-      },
-      {
-        id: 7,
-        icon: "fas fa-robot",
-        revealed: false
-      },
-      {
-        id: 8,
-        icon: "fas fa-book-dead",
-        revealed: false
-      },
-      {
-        id: 8,
-        icon: "fas fa-book-dead",
-        revealed: false
-      },
+    const tempIconList = [
+      "fas fa-spider",
+      "fas fa-spider",
+      "fas fa-cat",
+      "fas fa-cat",
+      "fas fa-truck-monster",
+      "fas fa-truck-monster",
+      "fas fa-bus-alt",
+      "fas fa-bus-alt",
+      "fas fa-snowman",
+      "fas fa-snowman",
+      "fas fa-apple-alt",
+      "fas fa-apple-alt",
+      "fas fa-robot",
+      "fas fa-robot",
+      "fas fa-book-dead",
+      "fas fa-book-dead",
     ]
+    const initalTiles = tempIconList.map((icon, index) => {
+      return(
+        {
+          id: index,
+          icon: icon,
+          revealed: false,
+        }
+      ) 
+    })
+
     // shuffle tiles order
     const shuffledTiles = getShuffledArray(initalTiles)
     // set tiles to state
     this.setState({
-      tiles: {
-        row1: [
-          shuffledTiles[0],
-          shuffledTiles[1],
-          shuffledTiles[2],
-          shuffledTiles[3]
-        ],
-        row2: [
-          shuffledTiles[4],
-          shuffledTiles[5],
-          shuffledTiles[6],
-          shuffledTiles[7]
-        ],
-        row3: [
-          shuffledTiles[8],
-          shuffledTiles[9],
-          shuffledTiles[10],
-          shuffledTiles[11]
-        ],
-        row4: [
-          shuffledTiles[12],
-          shuffledTiles[13],
-          shuffledTiles[14],
-          shuffledTiles[15]
-        ]
-      }
+      tiles: shuffledTiles
     })
   }
 

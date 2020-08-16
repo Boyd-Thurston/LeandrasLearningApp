@@ -59,18 +59,18 @@ export function getRandomSelection (array) {
 // randomly shuffles the order of a given array
 export function getShuffledArray (array) {
   // set variables
-  shuffledArray = []
-  unshuffledArray = [...array]
+  let shuffledArray = []
+  let unshuffledArray = [...array]
 
   // loop throuhg passed array
-  while(shuffledArray.length() != array.length()){
+  while(shuffledArray.length != array.length) {
     // get random value to use for index
-    randomInex = Math.floor(Math.random() * unshuffledArray.length())
+    const randomIndex = Math.floor(Math.random() * unshuffledArray.length)
     // push random selcted item to shuffled array
-    shuffledArray.push(unshuffledArray[randomInex])
+    shuffledArray.push(unshuffledArray[randomIndex])
     // remove selected item form unshuffled array
     unshuffledArray.splice(randomIndex, 1)
-    if(shuffledArray.length() == array.length()){
+    if(shuffledArray.length == array.length){
       // return the shuffled array
       return shuffledArray
     }
@@ -92,16 +92,16 @@ export const gameList = [
 
 
 export const randomiserGameList = [
-  'Maths Attack',
-  'Maths Attack',
-  'Maths Attack',
-  'Maths Attack',
-  'Maths Attack',
-  'Reading Scroll',
-  'Reading Scroll',
-  'Reading Scroll',
-  'Reading Scroll',
-  // 'Memory',
+  // 'Maths Attack',
+  // 'Maths Attack',
+  // 'Maths Attack',
+  // 'Maths Attack',
+  // 'Maths Attack',
+  // 'Reading Scroll',
+  // 'Reading Scroll',
+  // 'Reading Scroll',
+  // 'Reading Scroll',
+  'Memory',
   // 'wackamole',
   // 'Minesweeper',
   // 'Match them up',
