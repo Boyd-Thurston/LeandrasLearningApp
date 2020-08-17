@@ -1,11 +1,20 @@
 // import external modules
 import React from 'react'
 import { connect } from 'react-redux'
+import styled from 'styled-components'
 
 // local imports
 import { getShuffledArray } from '../utils/lib'
 import { changeCurrentGameRandomly, CLEAR } from '../actions'
 import GameMemoryTile from './GameMemoryTile'
+
+// define styled component styles
+const Gameboard = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 30%;
+  height: 100%;
+` 
 
 // define class component
 class GameMemory extends React.Component {
@@ -96,14 +105,14 @@ class GameMemory extends React.Component {
       <div>
         {this.state.tiles.length > 1? 
           <>
-            <div>
+            <Gameboard>
               {this.state.tiles.map(tile => <GameMemoryTile 
                 key={tile.id}
                 icon={tile.icon}
                 revealed={tile.revealed}
                 handleClick={() => this.handleClick(tile.id)}
               />)}
-            </div>
+            </Gameboard>
           </> : 
           <p>Loading ...</p>
         }
