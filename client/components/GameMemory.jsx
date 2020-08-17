@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 // local imports
 import { getShuffledArray } from '../utils/lib'
 import { changeCurrentGameRandomly, CLEAR } from '../actions'
+import GameMemoryTile from './GameMemoryTile'
 
 // define class component
 class GameMemory extends React.Component {
@@ -56,6 +57,28 @@ class GameMemory extends React.Component {
   }
 
   // Click Event Handler
+  handleClick (id) {
+    
+    if (this.state.firstSelectedTile && this.state.secondSelectedTile) return
+    const {firstSelectedTile} = this.state
+    const tile = this.state.tiles.find(tile => tile.id === id)
+    tile.revealed = true
+
+    // if the first tile is being flipped
+    if (firstSelectedTile === null) {
+      this.setState({
+        firstSelectedTile: tile
+      })
+      return
+    }
+
+    // if the second tile is being flipped
+    this.setState({
+      secondSelectedTile: tile
+    }, 
+    // this.processPair
+    )
+  }
 
   // validate answer
 
@@ -74,84 +97,12 @@ class GameMemory extends React.Component {
         {this.state.tiles.length > 1? 
           <>
             <div>
-              <div>
-                {this.state.tiles[0].revealed == true? 
-                  <i className={this.state.tiles[0].icon} ></i> : 
-                  <img src="/android-chrome-192x192.png" alt="tile backing"/> 
-                }
-              </div>
-              <div>
-                {this.state.tiles[1].revealed == true? 
-                  <i className={this.state.tiles[1].icon} ></i> : 
-                  <img src="/android-chrome-192x192.png" alt="tile backing"/> 
-                }
-              </div>              <div>
-                {this.state.tiles[2].revealed == true? 
-                  <i className={this.state.tiles[2].icon} ></i> : 
-                  <img src="/android-chrome-192x192.png" alt="tile backing"/> 
-                }
-              </div>
-              <div>
-                {this.state.tiles[3].revealed == true? 
-                  <i className={this.state.tiles[3].icon} ></i> : 
-                  <img src="/android-chrome-192x192.png" alt="tile backing"/> 
-                }
-              </div>
-            </div>
-            <div>
-              <div>
-                {this.state.tiles[4].revealed == true? 
-                  <i className={this.state.tiles[4].icon} ></i> : 
-                  <img src="/android-chrome-192x192.png" alt="tile backing"/> 
-                }
-              </div>
-              <div>
-                {this.state.tiles[5].revealed == true? 
-                  <i className={this.state.tiles[5].icon} ></i> : 
-                  <img src="/android-chrome-192x192.png" alt="tile backing"/> 
-                }
-              </div>              
-              <div>
-                {this.state.tiles[6].revealed == true? 
-                  <i className={this.state.tiles[6].icon} ></i> : 
-                  <img src="/android-chrome-192x192.png" alt="tile backing"/> 
-                }
-              </div>
-              <div>
-                {this.state.tiles[7].revealed == true? 
-                  <i className={this.state.tiles[7].icon} ></i> : 
-                  <img src="/android-chrome-192x192.png" alt="tile backing"/> 
-                }
-              </div>
-            </div>
-            <div>
-              <div>
-                {this.state.tiles[4].revealed == true? 
-                  <i className={this.state.tiles[4].icon} ></i> : 
-                  <img src="/android-chrome-192x192.png" alt="tile backing"/> 
-                }
-              </div>
-              <div>
-                {this.state.tiles[5].revealed == true? 
-                  <i className={this.state.tiles[5].icon} ></i> : 
-                  <img src="/android-chrome-192x192.png" alt="tile backing"/> 
-                }
-              </div>              
-              <div>
-                {this.state.tiles[6].revealed == true? 
-                  <i className={this.state.tiles[6].icon} ></i> : 
-                  <img src="/android-chrome-192x192.png" alt="tile backing"/> 
-                }
-              </div>
-              <div>
-                {this.state.tiles[7].revealed == true? 
-                  <i className={this.state.tiles[7].icon} ></i> : 
-                  <img src="/android-chrome-192x192.png" alt="tile backing"/> 
-                }
-              </div>
-            </div>
-            <div>
-            
+              {this.state.tiles.map(tile => <GameMemoryTile 
+                key={tile.id}
+                icon={tile.icon}
+                revealed={tile.revealed}
+                handleClick={() => this.handleClick(tile.id)}
+              />)}
             </div>
           </> : 
           <p>Loading ...</p>
