@@ -67,26 +67,26 @@ class GameMemory extends React.Component {
 
   // Click Event Handler
   handleClick (id) {
-    
-    if (this.state.firstSelectedTile && this.state.secondSelectedTile) return
-    const {firstSelectedTile} = this.state
-    const tile = this.state.tiles.find(tile => tile.id === id)
-    tile.revealed = true
+    // find tile selected in tiles array in state
+    // const tile = this.state.tiles.find(tile => tile.id === id)
+    const updatedArray = this.state.tiles.map(tile => {
+      if(tile.id === id){
+        tile.revealed = true
+      }
+      return tile
+    })
+    // tile.revealed = true
+    console.log(updatedArray);
+    // create a copy of state without
+    // update state to reveal tile
+    this.setState({
+      tiles: updatedArray
+    })
 
     // if the first tile is being flipped
-    if (firstSelectedTile === null) {
-      this.setState({
-        firstSelectedTile: tile
-      })
-      return
-    }
-
     // if the second tile is being flipped
-    this.setState({
-      secondSelectedTile: tile
-    }, 
     // this.processPair
-    )
+    // )
   }
 
   // validate answer

@@ -6,10 +6,10 @@ import styled from 'styled-components'
 const GameTile = styled.div`
   flex: 1 0 20%;
   margin: 2.5%;
+  ` 
+const TileBacking =styled.img`
   border-radius: 20%;
   background-color: #F5F;
-` 
-const TileBacking =styled.img`
   width:100%;
   height:100%;
 `
@@ -17,9 +17,9 @@ const TileBacking =styled.img`
 // define functional component 
 function GameMemoryTile (props) {
   return(
-    <GameTile id={props.id} onClick={props.handleClcik}> 
+    <GameTile id={props.id} onClick={props.handleClick}> 
       {props.revealed == true? 
-        <i className={props.icon} ></i> : 
+        <i stlye='color:green' className={props.icon} ></i> : 
         <TileBacking src="/android-chrome-192x192.png" alt="tile backing"/> 
       }
     </GameTile>
