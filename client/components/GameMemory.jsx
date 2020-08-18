@@ -110,6 +110,7 @@ class GameMemory extends React.Component {
                 key={tile.id}
                 icon={tile.icon}
                 revealed={tile.revealed}
+                colour="green"
                 handleClick={() => this.handleClick(tile.id)}
               />)}
             </Gameboard>
