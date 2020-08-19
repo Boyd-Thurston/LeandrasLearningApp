@@ -6,7 +6,6 @@ import styled from 'styled-components'
 // local imports
 import { getShuffledArray } from '../utils/lib'
 import { changeCurrentGameRandomly, CLEAR } from '../actions'
-import GameMemoryTile from './GameMemoryTile'
 
 // define styled component styles
 const Gameboard = styled.div`
@@ -18,7 +17,7 @@ const Gameboard = styled.div`
 const GameTile = styled.div`
   flex: 1 0 20%;
   margin: 2.5%;
-  ` 
+` 
 const TileBacking =styled.img`
   border-radius: 20%;
   background-color: #F5F;
@@ -29,12 +28,13 @@ const TileFront = styled.div`
   border-radius: 20%;
   border-color: #F5F;
   border-style: solid;
-  color: #${Math.floor(Math.random() * 0x1000000).toString(16).padStart(6, 0)};
+  color: ${props => props.color};
   font-size: 5.026rem;
   text-align: center;
   width:100%;
   height:100%;
 `
+
 // suporting data
 
 // define class component
@@ -43,7 +43,8 @@ class GameMemory extends React.Component {
   state = {
     tiles: [],
     firstSelectedTile: null,
-    secondSelectedTile: null
+    secondSelectedTile: null,
+    pairsMatched: 0
   }
 
   // generate intial tiles
@@ -51,28 +52,29 @@ class GameMemory extends React.Component {
     // selcet random tiles
       // todo: create list constant and random seletor for multiple items from list
     const tempIconList = [
-      "fas fa-spider",
-      "fas fa-spider",
-      "fas fa-cat",
-      "fas fa-cat",
-      "fas fa-truck-monster",
-      "fas fa-truck-monster",
-      "fas fa-bus-alt",
-      "fas fa-bus-alt",
-      "fas fa-snowman",
-      "fas fa-snowman",
-      "fas fa-apple-alt",
-      "fas fa-apple-alt",
-      "fas fa-robot",
-      "fas fa-robot",
-      "fas fa-book-dead",
-      "fas fa-book-dead",
+      {icon: "fas fa-spider", color: "purple"},
+      {icon: "fas fa-spider", color: "purple"},
+      {icon: "fas fa-cat", color: "gray" },
+      {icon: "fas fa-cat", color: "gray" },
+      {icon: "fas fa-truck-monster", color: "blue"},
+      {icon: "fas fa-truck-monster", color: "blue"},
+      {icon: "fas fa-bus-alt", color: "orange" },
+      {icon: "fas fa-bus-alt", color: "orange" },
+      {icon: "fas fa-snowman", color: "lightblue"},
+      {icon: "fas fa-snowman", color: "lightblue"},
+      {icon: "fas fa-apple-alt", color: "red"},
+      {icon: "fas fa-apple-alt", color: "red"},
+      {icon: "fas fa-robot", color: "green"},
+      {icon: "fas fa-robot", color: "green"},
+      {icon: "fas fa-book-dead", color: "black"},
+      {icon: "fas fa-book-dead", color: "black"},
     ]
     const initalTiles = tempIconList.map((icon, index) => {
       return(
         {
           id: index,
-          icon: icon,
+          icon: icon.icon,
+          color: icon.color,
           revealed: false,
         }
       ) 
@@ -89,30 +91,62 @@ class GameMemory extends React.Component {
   // Click Event Handler
   handleClick (id) {
     // find tile selected in tiles array in state
-    // const tile = this.state.tiles.find(tile => tile.id === id)
+    const selectedtile = this.state.tiles.find(tile => tile.id === id)
+    // create a copy of state with update revealed property
     const updatedArray = this.state.tiles.map(tile => {
       if(tile.id === id){
         tile.revealed = true
       }
       return tile
     })
-    // tile.revealed = true
-    console.log(updatedArray);
-    // create a copy of state without
     // update state to reveal tile
     this.setState({
       tiles: updatedArray
     })
 
     // if the first tile is being flipped
+    if (this.state.firstSelectedTile == null){
+      this.setState({
+        firstSelectedTile: selectedtile
+      })
+    }
     // if the second tile is being flipped
-    // this.processPair
-    // )
+    else {
+      this.setState({
+        secondSelectedTile: selectedtile
+      })
+      setTimeout(() => this.processPair(selectedtile), 1000)
+    }
   }
 
   // validate answer
-
-  // reset tiles
+  processPair = (secondTile) => {
+    // check if tiles match
+    if( this.state.firstSelectedTile.icon == secondTile.icon){
+      // record pair was a match
+      this.setState({
+        firstSelectedTile: null,
+        secondSelectedTile: null,
+        pairsMatched: this.state.pairsMatched + 1 
+      })
+      // check to see if game has been won
+    }
+    // reset tiles if not a match
+    else {
+      const updatedArray = this.state.tiles.map(tile => {
+        if(tile.id === this.state.firstSelectedTile.id || tile.id === secondTile.id){
+          tile.revealed = false
+        }
+        return tile
+      })
+      // update state to hide tiles and clear selected tiles
+      this.setState({
+        tiles: updatedArray,
+        firstSelectedTile: null,
+        secondSelectedTile: null
+      })
+    }
+  }
 
   // starts the next game
   getNewGame = () => {
@@ -131,19 +165,13 @@ class GameMemory extends React.Component {
                 <GameTile 
                   key={tile.id}
                   id={tile.id} 
-                  onClick={() => {this.handleClick(tile.id)}}> 
+                  onClick={() => {this.handleClick(tile.id)}}
+                > 
                   {tile.revealed == true? 
-                    <TileFront><i className={tile.icon}></i></TileFront> : 
+                    <TileFront color={tile.color}><i className={tile.icon}></i></TileFront> : 
                     <TileBacking src="/android-chrome-192x192.png" alt="tile backing"/> 
                   }
                 </GameTile>
-              // <GameMemoryTile 
-              //   key={tile.id}
-              //   icon={tile.icon}
-              //   revealed={tile.revealed}
-              //   colour="green"
-              //   handleClick={() => this.handleClick(tile.id)}
-              // />
               )}
             </Gameboard>
           </> : 
