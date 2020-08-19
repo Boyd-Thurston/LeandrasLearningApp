@@ -115,14 +115,14 @@ class GameMemory extends React.Component {
       this.setState({
         secondSelectedTile: selectedtile
       })
-      setTimeout(() => this.processPair(selectedtile), 1000)
+      setTimeout(() => this.processPair(), 1000)
     }
   }
 
   // validate answer
-  processPair = (secondTile) => {
+  processPair = () => {
     // check if tiles match
-    if( this.state.firstSelectedTile.icon == secondTile.icon){
+    if( this.state.firstSelectedTile.icon == this.state.secondSelectedTile.icon){
       // record pair was a match
       this.setState({
         firstSelectedTile: null,
@@ -134,7 +134,7 @@ class GameMemory extends React.Component {
     // reset tiles if not a match
     else {
       const updatedArray = this.state.tiles.map(tile => {
-        if(tile.id === this.state.firstSelectedTile.id || tile.id === secondTile.id){
+        if(tile.id === this.state.firstSelectedTile.id || tile.id === this.state.secondSelectedTile.id){
           tile.revealed = false
         }
         return tile
