@@ -15,6 +15,27 @@ const Gameboard = styled.div`
   margin: 0 30%;
   height: 100%;
 ` 
+const GameTile = styled.div`
+  flex: 1 0 20%;
+  margin: 2.5%;
+  ` 
+const TileBacking =styled.img`
+  border-radius: 20%;
+  background-color: #F5F;
+  width:100%;
+  height:100%;
+`
+const TileFront = styled.div`
+  border-radius: 20%;
+  border-color: #F5F;
+  border-style: solid;
+  color: #${Math.floor(Math.random() * 0x1000000).toString(16).padStart(6, 0)};
+  font-size: 5.026rem;
+  text-align: center;
+  width:100%;
+  height:100%;
+`
+// suporting data
 
 // define class component
 class GameMemory extends React.Component {
@@ -106,13 +127,24 @@ class GameMemory extends React.Component {
         {this.state.tiles.length > 1? 
           <>
             <Gameboard>
-              {this.state.tiles.map(tile => <GameMemoryTile 
-                key={tile.id}
-                icon={tile.icon}
-                revealed={tile.revealed}
-                colour="green"
-                handleClick={() => this.handleClick(tile.id)}
-              />)}
+              {this.state.tiles.map(tile => 
+                <GameTile 
+                  key={tile.id}
+                  id={tile.id} 
+                  onClick={() => {this.handleClick(tile.id)}}> 
+                  {tile.revealed == true? 
+                    <TileFront><i className={tile.icon}></i></TileFront> : 
+                    <TileBacking src="/android-chrome-192x192.png" alt="tile backing"/> 
+                  }
+                </GameTile>
+              // <GameMemoryTile 
+              //   key={tile.id}
+              //   icon={tile.icon}
+              //   revealed={tile.revealed}
+              //   colour="green"
+              //   handleClick={() => this.handleClick(tile.id)}
+              // />
+              )}
             </Gameboard>
           </> : 
           <p>Loading ...</p>
