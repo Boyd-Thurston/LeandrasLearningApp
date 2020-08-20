@@ -67,12 +67,20 @@ This section defines the db tables used in this add and the data types for each 
 | reading_skill_level      | Integer   |               |
 | reading_text             | Integer   |               |
 | reading_comprehension    | Integer   |               |
-| Facts                    | Integer   |               |
-| Logic                    | Integer   |               |
-| Memory                   | Integer   |               |
+| facts                    | Integer   |               |
+| logic                    | Integer   |               |
+| memory                   | Integer   |               |
 | telling_time             | Integer   |               |
 | financial_literacy       | Integer   |               |
 | hand_mouse_coordernation | Integer   |               |
+
+
+### facts                  
+|  Column | Data Type |  Constraints  |
+|---------|-----------|---------------|
+| id      | Integer   | PK increments |
+| fact    | Integer   |               |
+| answer  | boolean   |               |
 
 ## Setup/Installation
 
