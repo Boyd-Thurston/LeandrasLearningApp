@@ -31,7 +31,7 @@ The idea behind this a serries of randomly selected educational games where the 
 *Games to create*
 - [x] Maths Attack
 - [x] Reading Scroll
-- [ ] Memory
+- [x] Memory
 - [ ] True or False
 - [ ] Minesweeper
 - [ ] Whackamole
@@ -100,6 +100,7 @@ Frontend frameworks:
 - Redux
 - Thunk
 - Webpack
+- Styled-Components
 
 DB and framework:
 - Knex
