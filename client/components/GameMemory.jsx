@@ -162,11 +162,8 @@ class GameMemory extends React.Component {
           <>
             <Gameboard>
               {this.state.tiles.map(tile => 
-                <GameTile 
-                  key={tile.id}
-                  id={tile.id} 
-                  onClick={() => {this.handleClick(tile.id)}}
-                > 
+                <GameTile key={tile.id} id={tile.id} onClick={() => {this.handleClick(tile.id)}}>
+                  {/*conditonal rendering based on if tile is revelaed or not*/}
                   {tile.revealed == true? 
                     <TileFront color={tile.color}><i className={tile.icon}></i></TileFront> : 
                     <TileBacking src="/android-chrome-192x192.png" alt="tile backing"/> 
