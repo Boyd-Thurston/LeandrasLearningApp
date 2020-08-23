@@ -44,7 +44,8 @@ class GameMemory extends React.Component {
     tiles: [],
     firstSelectedTile: null,
     secondSelectedTile: null,
-    pairsMatched: 0
+    pairsMatched: 0,
+    clickingEnabled: true
   }
 
   // generate intial tiles
@@ -90,33 +91,38 @@ class GameMemory extends React.Component {
 
   // Click Event Handler
   handleClick (id) {
-    // find tile selected in tiles array in state
-    const selectedtile = this.state.tiles.find(tile => tile.id === id)
-    // create a copy of state with update revealed property
-    const updatedArray = this.state.tiles.map(tile => {
-      if(tile.id === id){
-        tile.revealed = true
+    // checki fi clicking is enabled before proceding 
+    if(this.state.clickingEnabled){
+      // find tile selected in tiles array in state
+      const selectedtile = this.state.tiles.find(tile => tile.id === id)
+      // create a copy of state with update revealed property
+      const updatedArray = this.state.tiles.map(tile => {
+        if(tile.id === id){
+          tile.revealed = true
+        }
+        return tile
+      })
+      // update state to reveal tile
+      this.setState({
+        tiles: updatedArray
+      })
+  
+      // if the first tile is being flipped
+      if (this.state.firstSelectedTile == null){
+        this.setState({
+          firstSelectedTile: selectedtile
+        })
       }
-      return tile
-    })
-    // update state to reveal tile
-    this.setState({
-      tiles: updatedArray
-    })
+      // if the second tile is being flipped
+      else {
+        this.setState({
+          secondSelectedTile: selectedtile,
+          clickingEnabled: false
+        })
+        setTimeout(() => this.processPair(), 600)
+      }
+    }
 
-    // if the first tile is being flipped
-    if (this.state.firstSelectedTile == null){
-      this.setState({
-        firstSelectedTile: selectedtile
-      })
-    }
-    // if the second tile is being flipped
-    else {
-      this.setState({
-        secondSelectedTile: selectedtile
-      })
-      setTimeout(() => this.processPair(), 1000)
-    }
   }
 
   // validate answer
@@ -127,7 +133,8 @@ class GameMemory extends React.Component {
       this.setState({
         firstSelectedTile: null,
         secondSelectedTile: null,
-        pairsMatched: this.state.pairsMatched + 1 
+        pairsMatched: this.state.pairsMatched + 1,
+        clickingEnabled: true
       })
       // check to see if game has been won
     }
@@ -143,7 +150,8 @@ class GameMemory extends React.Component {
       this.setState({
         tiles: updatedArray,
         firstSelectedTile: null,
-        secondSelectedTile: null
+        secondSelectedTile: null,
+        clickingEnabled: true
       })
     }
   }
