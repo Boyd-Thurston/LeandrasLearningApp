@@ -114,7 +114,7 @@ class GameMemory extends React.Component {
         })
       }
       // if the second tile is being flipped
-      else {
+      else if (this.state.secondSelectedTile == null && this.state.firstSelectedTile != selectedtile) {
         this.setState({
           secondSelectedTile: selectedtile,
           clickingEnabled: false
