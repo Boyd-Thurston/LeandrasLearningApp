@@ -2,7 +2,9 @@
 //     UTIITIES LIBARY FOR FRONTEND SUPPORTING FUNCTIONS
 // =========================================================
 
+// import external modules
 import jwt from 'jsonwebtoken'
+
 
 // ===============================
 // _____ AUTH/JWT FUNCTIONS ______
@@ -31,6 +33,7 @@ export function isAuthenticated () {
     if(decodedToken.exp > currentTime){
       return true
     } else {
+      // clear expired token
       localStorage.removeItem('token')
       return false
     }
