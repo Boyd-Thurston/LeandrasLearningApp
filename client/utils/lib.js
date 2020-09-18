@@ -2,6 +2,7 @@
 //     UTIITIES LIBARY FOR FRONTEND SUPPORTING FUNCTIONS
 // =========================================================
 
+import jwt from 'jsonwebtoken'
 
 // ===============================
 // _____ AUTH/JWT FUNCTIONS ______
@@ -23,8 +24,16 @@ export function getToken () {
 // checks to see if user is authenticated or not
 export function isAuthenticated () {
   const authToken = getToken()
+  const decodedToken = jwt.decode(authToken)
+  const currentTime = Math.floor(Date.now() / 1000)
   if(authToken != null){
-    return true
+    // check if token is still valid or has expired
+    if(decodedToken.exp > currentTime){
+      return true
+    } else {
+      localStorage.removeItem('token')
+      return false
+    }
   } else {
     return false
   }
