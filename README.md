@@ -43,7 +43,7 @@ The idea behind this a serries of randomly selected educational games where the 
 
 This section defines the db tables used in this add and the data types for each column
 
-### Users               
+### users               
 |  Column   | Data Type |  Constraints  |
 |-----------|-----------|---------------|
 | id        | Integer   | PK increments |
@@ -54,7 +54,7 @@ This section defines the db tables used in this add and the data types for each 
 | parent_id | Integer   |               |
 
 
-### Statistics                  
+### statistics                  
 |  Column                  | Data Type |  Constraints  |
 |--------------------------|-----------|---------------|
 | id                       | Integer   | PK increments |
@@ -81,6 +81,17 @@ This section defines the db tables used in this add and the data types for each 
 | id      | Integer   | PK increments |
 | fact    | Integer   |               |
 | answer  | boolean   |               |
+
+
+### exerpts
+|  Column         | Data Type |  Constraints      |
+|-----------------|-----------|-------------------|
+| id              | Integer   | PK increments     |
+| exerpt          | Text      |                   |
+| posible_answers | Text      | stringified array |
+| answer          | String    |                   |
+
+
 
 ## Setup/Installation
 
