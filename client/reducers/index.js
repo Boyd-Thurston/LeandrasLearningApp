@@ -5,12 +5,14 @@ import { combineReducers } from 'redux'
 import user from './user'
 import children from './children'
 import game from './game'
+import facts from './facts'
 
 // combine reducers to single reducer
 const reducer = combineReducers({
   user,
   children,
-  game
+  game,
+  facts
 })
 
 // export single reducer
