@@ -7,6 +7,7 @@ import GameMathsAttack from './GameMathsAttack'
 import UnderConstruction from './UnderConstruction'
 import GameReadingScroll from './GameReadingScroll'
 import GameMemory from './GameMemory'
+import GameTrueOrFalse from './GameTrueOrFalse'
 
 // define functional component 
 function Game (props) {
@@ -15,6 +16,7 @@ function Game (props) {
       {props.game == 'Maths Attack' && <GameMathsAttack />}
       {props.game == 'Reading Scroll' && <GameReadingScroll />}
       {props.game == 'Memory' && <GameMemory />}
+      {props.game == 'True or False' && <GameTrueOrFalse />}
     </>
   )
 }
