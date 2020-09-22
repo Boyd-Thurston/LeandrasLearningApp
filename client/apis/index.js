@@ -8,8 +8,11 @@ import { getToken } from '../utils/lib'
 const baseUrl = '/api/v1'
 const authRoute = '/auth'
 const parentRoute = '/parent'
+const childrenRoute = '/children'
 
-// api calls
+// ==================================
+//   api calls for protected routes
+// ==================================
 
 // reister a new parent user
 export function addNewParentUser(user) {
@@ -47,5 +50,15 @@ export function getChildrenList(){
   return request.get(`${baseUrl}${parentRoute}/children`)
   .set({ 'Content-Type': 'application/json'})
   .set({ 'Authorization': `Bearer ${getToken()}`})
+  .then(res => res.body)
+}
+
+// ====================================
+//   api calls for unprotected routes
+// ====================================
+
+// get a list of facts for true or false game support
+export function getFactsList(){
+  return request.get(`${baseUrl}${childrenRoute}/facts`)
   .then(res => res.body)
 }
