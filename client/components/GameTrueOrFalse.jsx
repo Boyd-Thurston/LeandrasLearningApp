@@ -47,7 +47,7 @@ class GameTrueOrFalse extends React.Component {
   // render class component
   render(){
     return(
-      <div>
+      <div className='container'>
         {
           this.state.answer != null?
           <>
