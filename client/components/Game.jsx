@@ -8,6 +8,7 @@ import UnderConstruction from './UnderConstruction'
 import GameReadingScroll from './GameReadingScroll'
 import GameMemory from './GameMemory'
 import GameTrueOrFalse from './GameTrueOrFalse'
+import { GameWinScreen } from './GameWinScreen'
 
 // define functional component 
 function Game (props) {
@@ -17,6 +18,7 @@ function Game (props) {
       {props.game == 'Reading Scroll' && <GameReadingScroll />}
       {props.game == 'Memory' && <GameMemory />}
       {props.game == 'True or False' && <GameTrueOrFalse />}
+      {props.game == 'Win Screen' && <GameWinScreen />}
     </>
   )
 }
