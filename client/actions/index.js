@@ -68,6 +68,7 @@ export function fetchChildrenList () {
 
 // fetch facts list from DB for true or false game support
 export function fetchFactsList () {
+  console.log('fetchFactsList is beining called');
   return dispatch => {
     getFactsList()
     .then(factsList => {dispatch({

@@ -12,7 +12,7 @@ router.get('/facts', getFacts)
 
 // supporting functions to routs
 function getFacts (req, res) {
-  getFactsList(req.user.id)
+  getFactsList()
     .then(factList => res.json(factList))
     .catch(() => res.status(500).json({
       ok: false,

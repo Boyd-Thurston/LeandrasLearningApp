@@ -59,6 +59,7 @@ export function getChildrenList(){
 
 // get a list of facts for true or false game support
 export function getFactsList(){
+  console.log('getFactsList is being called');
   return request.get(`${baseUrl}${childrenRoute}/facts`)
   .then(res => res.body)
 }

@@ -4,9 +4,9 @@ import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 // local imports
-import { saveUser } from '../actions'
+import { fetchFactsList, saveUser } from '../actions'
 import { isAuthenticated } from '../utils/lib'
-import { getUserDetails } from '../apis'
+import { getFactsList, getUserDetails } from '../apis'
 import Nav from './Nav'
 import AuthSignIn from './AuthSignIn'
 import AuthRegister from './AuthRegister'
@@ -19,10 +19,13 @@ import GameSelection from './GameSelection'
 // define class component 
 export class App extends React.Component {
 
-  // inital auth validation call
+  // inital app set up
   componentDidMount(){
+    // inital auth validation call
     isAuthenticated() && getUserDetails()
     .then(userDetails => {this.props.dispatch(saveUser(userDetails))})
+    // pre warm cache
+    this.props.dispatch(fetchFactsList())
   }
 
 
