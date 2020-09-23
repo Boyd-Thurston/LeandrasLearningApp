@@ -1,11 +1,10 @@
 // import external modules
 import React from 'react'
 import { connect } from 'react-redux'
-import { useWindowSize } from 'react-use'
 import Confetti from 'react-confetti'
 
 // local imports
-import { changeCurrentGameRandomly } from '../actions'
+import { changeCurrentGameRandomly, CLEAR } from '../actions'
 
 // define class component 
 export class GameWinScreen extends React.Component {
@@ -18,7 +17,7 @@ export class GameWinScreen extends React.Component {
 
   // renders the class component
   render(){
-    const { width, height } = useWindowSize()
+    const { width, height } = '100%'
     return(
       <>
         <Confetti width={width} height={height} />

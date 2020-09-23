@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 // local imports
 import { getRandomSelection, getRandomNumber } from '../utils/lib'
-import { changeCurrentGameRandomly, CLEAR } from '../actions'
+import { changeCurrentGameRandomly, CLEAR, GAME_CHANGE_CURRENT } from '../actions'
 
 // define class component
 class GameMathsAttack extends React.Component {
@@ -67,9 +67,12 @@ class GameMathsAttack extends React.Component {
   }
 
   // starts the next game
-  getNewGame = () => {
+  getNewGame = (result) => {
     this.props.dispatch({type: CLEAR})
-    this.props.dispatch(changeCurrentGameRandomly())
+    this.props.dispatch({
+      type: GAME_CHANGE_CURRENT,
+      game: result
+    })
   }
 
   // submit event handler
@@ -88,14 +91,14 @@ class GameMathsAttack extends React.Component {
       // tidy up
       this.getMathsQuestion(),
       // next action
-      this.getNewGame()
+      this.getNewGame('Win Screen')
       // ToDo: send update to child statistics
     ): this.state.attempts >= 2 ? (
       this.setState({message: "Don't worry, you will do better next time. Lets try somthing else"}),
       // // tidy up
       this.getMathsQuestion(),
       // // next action
-      this.getNewGame()
+      this.getNewGame('Loss Screen')
     ) : 
       this.setState({
         message: 'incorrect, please try again',
