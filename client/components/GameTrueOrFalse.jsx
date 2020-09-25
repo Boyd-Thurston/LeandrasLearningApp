@@ -32,15 +32,29 @@ class GameTrueOrFalse extends React.Component {
 
     // validate boolian selected answer against answer
     selectedAnswer == this.state.answer?
-    this.setState({
-      question: '',
-      answer: null,
-      message: 'Correct'
-    }):
-    this.setState({
-      question: '',
-      answer: null,
-      message: 'Wrong'
+    (
+      this.setState({
+        question: '',
+        answer: null,
+        message: 'Correct'
+      }),
+      this.getNewGame('Win Screen')
+    ):(
+      this.setState({
+        question: '',
+        answer: null,
+        message: 'Wrong'
+      }),
+      this.getNewGame('Loss Screen')
+    )
+  }
+
+  // starts the next game
+  getNewGame = (result) => {
+    this.props.dispatch({type: CLEAR})
+    this.props.dispatch({
+      type: GAME_CHANGE_CURRENT,
+      game: result
     })
   }
 
