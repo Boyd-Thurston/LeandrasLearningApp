@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 // local imports
 import { getShuffledArray } from '../utils/lib'
-import { changeCurrentGameRandomly, CLEAR } from '../actions'
+import { changeCurrentGameRandomly, CLEAR, GAME_CHANGE_CURRENT } from '../actions'
 
 // define styled component styles
 const Gameboard = styled.div`
@@ -139,7 +139,7 @@ class GameMemory extends React.Component {
       // check to see if game has been won
       this.state.pairsMatched == 8 && this.props.dispatch({type: CLEAR}) && this.props.dispatch({
         type: GAME_CHANGE_CURRENT,
-        game: 'Loss Screen'
+        game: 'Win Screen'
       })
     }
     // reset tiles if not a match

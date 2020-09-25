@@ -34,12 +34,10 @@ export class GameLossScreen extends React.Component {
   // renders the class component
   render(){
     return(
-      <>
+      <div className='container'>
         {this.state.message != '' && <p>{this.state.message}</p>}
-        <div className='container'>
-          <button className='button' onClick={this.handleClick} >Next Game</button>
-        </div>
-      </>
+        <button className='button' onClick={this.handleClick} >Next Game</button>
+      </div>
     )
   }
 }
