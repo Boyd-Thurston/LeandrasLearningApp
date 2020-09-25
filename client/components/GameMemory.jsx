@@ -137,6 +137,10 @@ class GameMemory extends React.Component {
         clickingEnabled: true
       })
       // check to see if game has been won
+      this.state.pairsMatched == 8 && this.props.dispatch({type: CLEAR}) && this.props.dispatch({
+        type: GAME_CHANGE_CURRENT,
+        game: 'Loss Screen'
+      })
     }
     // reset tiles if not a match
     else {
