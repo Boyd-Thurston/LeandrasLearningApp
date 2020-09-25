@@ -109,7 +109,7 @@ class GameReadingScroll extends React.Component {
             <h2 id='game-reading-scroll-title'>{`exert from ${this.state.title}`}</h2>
             <p id='game-reading-scroll-instructions'>
               <b>
-                Read the exert below, once you have done click Finished Reading to move on to
+                Read the exerpt below, once you have done click Finished Reading to move on to
                 the question about this text.
               </b>
             </p>
