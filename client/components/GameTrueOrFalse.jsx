@@ -1,6 +1,7 @@
 // import external modules
 import React from 'react'
 import { connect } from 'react-redux'
+import { CLEAR, GAME_CHANGE_CURRENT } from '../actions'
 
 // local imports
 import { getRandomSelection } from '../utils/lib'
