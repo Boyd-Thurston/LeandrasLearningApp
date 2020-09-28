@@ -1,13 +1,14 @@
 
 exports.up = knex => {
-  return knex.schema.createTable('exerpts', table => {
+  return knex.schema.createTable('excerpts', table => {
     table.increments('id').primary()
-    table.text('exerpt')
+    table.text('excerpt')
     table.text('possible_answers')
+    table.text('question')
     table.string('answer')
   }) 
  }
  
  exports.down = knex => {
-  return knex.schema.dropTable('exerpts')
+  return knex.schema.dropTable('excerpts')
  }
