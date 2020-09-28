@@ -11,6 +11,7 @@ class GameReadingScroll extends React.Component {
   state = {
     displayed: 'text',
     title: 'loading....',
+    author: 'loading....',
     text: 'loading....',
     question: {
       question: 'loading....',
@@ -27,6 +28,7 @@ class GameReadingScroll extends React.Component {
     this.setState({
       displayed: 'text',
       title: 'loading....',
+      author: 'loading....',
       text: 'loading....',
       question: {
         question: 'loading....',
@@ -107,6 +109,7 @@ class GameReadingScroll extends React.Component {
         {this.state.displayed == 'text' && 
           <div>
             <h2 id='game-reading-scroll-title'>{`excerpt from ${this.state.title}`}</h2>
+            <h3 id='game-reading-scroll-author'>{`by ${this.state.author}`}</h3>
             <p id='game-reading-scroll-instructions'>
               <b>
                 Read the exerpt below, once you have done click Finished Reading to move on to

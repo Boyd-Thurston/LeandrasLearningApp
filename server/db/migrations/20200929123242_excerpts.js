@@ -1,4 +1,3 @@
-
 exports.up = knex => {
   return knex.schema.createTable('excerpts', table => {
     table.increments('id').primary()
