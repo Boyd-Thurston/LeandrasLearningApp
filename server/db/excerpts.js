@@ -7,11 +7,11 @@
 const connection = require('./connection')
 
 // gets a list of all excerpts in the database
-function getExcrptsList(db = connection){
+function getExcerptsList(db = connection){
   return db('excerpts').select('*')
 }
 
 // export functions
 module.exports = {
-  getExcrptsList
+  getExcerptsList
 }
