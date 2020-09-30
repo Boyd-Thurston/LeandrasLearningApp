@@ -59,7 +59,12 @@ export function getChildrenList(){
 
 // get a list of facts for true or false game support
 export function getFactsList(){
-  console.log('getFactsList is being called');
   return request.get(`${baseUrl}${childrenRoute}/facts`)
+  .then(res => res.body)
+}
+
+// get a list of excerpts for reading scroll game support
+export function getExcerptsList(){
+  return request.get(`${baseUrl}${childrenRoute}/excerpts`)
   .then(res => res.body)
 }
