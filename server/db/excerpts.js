@@ -1,4 +1,4 @@
-// FACTS TABLE DATABASE FUNCTIONS
+// EXCERPTS TABLE DATABASE FUNCTIONS
 // 
 // this set of functions contains all the db queries that relate specificaly 
 // to the facts table in the db.
@@ -6,12 +6,12 @@
 // local imports
 const connection = require('./connection')
 
-// gets a list of all facts in the database
-function getFactsList(db = connection){
-  return db('facts').select('*')
+// gets a list of all excerpts in the database
+function getExcrptsList(db = connection){
+  return db('excerpts').select('*')
 }
 
 // export functions
 module.exports = {
-  getFactsList
+  getExcrptsList
 }

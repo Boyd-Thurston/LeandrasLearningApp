@@ -1,7 +1,7 @@
 // USER TABLE DATABASE FUNCTIONS
 // 
-// this set of functions contains all the db queries the relate 
-// specificaly to the user table in the db.
+// this set of functions contains all the db queries that relate specificaly 
+// to the user table in the db.
 
 // local imports
 const connection = require('./connection')
