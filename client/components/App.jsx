@@ -4,9 +4,9 @@ import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 // local imports
-import { fetchFactsList, saveUser } from '../actions'
+import { fetchExcerptsList, fetchFactsList, saveUser } from '../actions'
 import { isAuthenticated } from '../utils/lib'
-import { getFactsList, getUserDetails } from '../apis'
+import { getUserDetails } from '../apis'
 import Nav from './Nav'
 import AuthSignIn from './AuthSignIn'
 import AuthRegister from './AuthRegister'
@@ -26,6 +26,7 @@ export class App extends React.Component {
     .then(userDetails => {this.props.dispatch(saveUser(userDetails))})
     // pre warm cache
     this.props.dispatch(fetchFactsList())
+    this.props.dispatch(fetchExcerptsList())
   }
 
 
