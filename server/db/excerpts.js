@@ -9,7 +9,10 @@ const connection = require('./connection')
 // gets a list of all excerpts in the database
 function getExcerptsList(db = connection){
   return db('excerpts').select('*')
-  .then(excerpts => excerpts.map(item => item.possible_answers = JSON.parse(item.possible_answers)))
+  .then(excerpts => excerpts.map(item => {
+    return {...item, possible_answers: JSON.parse(item.possible_answers)}
+    })
+  )
 }
 
 // export functions
