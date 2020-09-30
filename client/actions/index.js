@@ -83,7 +83,7 @@ export function fetchExcerptsList () {
   return dispatch => {
     getExcerptsList()
     .then(excerptsList => {dispatch({
-      type: FEXCERPTS_SAVE_EXCERPTS_LIST,
+      type: EXCERPTS_SAVE_EXCERPTS_LIST,
       excerpts: excerptsList
     })})
   }
