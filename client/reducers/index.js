@@ -6,13 +6,15 @@ import user from './user'
 import children from './children'
 import game from './game'
 import facts from './facts'
+import excerpts from './excerpts'
 
 // combine reducers to single reducer
 const reducer = combineReducers({
   user,
   children,
   game,
-  facts
+  facts,
+  excerpts
 })
 
 // export single reducer
