@@ -22,7 +22,7 @@ export class GameWinScreen extends React.Component {
       <>
         <Confetti width={width} height={height} />
         <div className='container'>
-          <button className='button' onClick={this.handleClick} >Next Game</button>
+          <button className='button' onClick={this.handleClick} autoFocus>Next Game</button>
         </div>
       </>
     )

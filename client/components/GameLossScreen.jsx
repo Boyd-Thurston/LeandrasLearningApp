@@ -36,7 +36,7 @@ export class GameLossScreen extends React.Component {
     return(
       <div className='container'>
         {this.state.message != '' && <p>{this.state.message}</p>}
-        <button className='button' onClick={this.handleClick} >Next Game</button>
+        <button className='button' onClick={this.handleClick} autoFocus>Next Game</button>
       </div>
     )
   }
