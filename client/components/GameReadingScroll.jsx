@@ -3,7 +3,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 // local imports
-import { changeCurrentGameRandomly, CLEAR, GAME_CHANGE_CURRENT } from '../actions'
+import { CLEAR, GAME_CHANGE_CURRENT } from '../actions'
+import { getRandomSelection, getShuffledArray } from '../utils/lib'
 
 // define class component
 class GameReadingScroll extends React.Component {
@@ -21,6 +22,21 @@ class GameReadingScroll extends React.Component {
     selectedAnswer: '',
     message: '',
     attempts: 0
+  }
+
+  // set props to state
+  componentDidMount() {
+    const selectedExcerpt = getRandomSelection(this.props.excerpts)
+    this.setState({
+      title: selectedExcerpt.title,
+      author: selectedExcerpt.author,
+      text: selectedExcerpt.excerpt,
+      question: {
+        question: selectedExcerpt.question,
+        posibleAnswers: getShuffledArray(selectedExcerpt.possible_answers),
+        correctAnswer: selectedExcerpt.answer
+      },
+    })
   }
 
   // reset to inital state
@@ -152,5 +168,12 @@ class GameReadingScroll extends React.Component {
   }
 }
 
+// map global state to the local props
+function mapStateToProps(globalState) {
+  return {
+    excerpts: globalState.excerpts
+  }
+}
+
 // export component
-export default connect()(GameReadingScroll)
+export default connect(mapStateToProps)(GameReadingScroll)
