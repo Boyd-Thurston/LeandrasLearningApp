@@ -1,5 +1,6 @@
 // import external modules
 const express = require('express')
+const verifyJwt = require('express-jwt')
 
 // local imports
 const { getFactsList } = require('../db/facts')
